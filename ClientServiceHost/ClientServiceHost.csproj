@@ -49,7 +49,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WCFPOC\ClientService.csproj">
+    <ProjectReference Include="..\ClientService\ClientService.csproj">
       <Project>{f50daf31-3e05-4474-a105-93475d4593de}</Project>
       <Name>ClientService</Name>
     </ProjectReference>

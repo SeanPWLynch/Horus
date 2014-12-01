@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Diagnostics;
 
 namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
 {
@@ -20,6 +21,11 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
         public ClientComputer GetComputer()
         {
             return clientComputer;
+        }
+
+        public void StartProcess(string ProcessName)
+        {
+            Process.Start(ProcessName);
         }
     }
 }

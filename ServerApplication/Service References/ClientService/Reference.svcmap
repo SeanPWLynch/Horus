@@ -22,11 +22,12 @@
     <MetadataSource Address="http://localhost:8000/WCFClientService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ClientService.wsdl" MetadataType="Wsdl" ID="0c5ead9b-9936-4fb5-bc3b-74bbccad92a6" SourceId="1" SourceUrl="http://localhost:8000/WCFClientService/?wsdl" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="82e42ef1-f489-41ae-859c-fc04a599175f" SourceId="1" SourceUrl="http://localhost:8000/WCFClientService/?disco" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="ba4490fc-b97e-4fdb-a5f8-5c7370f1c6da" SourceId="1" SourceUrl="http://localhost:8000/WCFClientService/?xsd=xsd2" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="05f6f664-4265-453e-bd8d-7165a2a5af8e" SourceId="1" SourceUrl="http://localhost:8000/WCFClientService/?xsd=xsd0" />
     <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="fbe7e61d-58d0-49a3-9eac-d34971314d5d" SourceId="1" SourceUrl="http://localhost:8000/WCFClientService/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="82e42ef1-f489-41ae-859c-fc04a599175f" SourceId="1" SourceUrl="http://localhost:8000/WCFClientService/?disco" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="9ddaf827-913b-4cb7-97cd-8b7307fa8a2a" SourceId="1" SourceUrl="http://localhost:8000/WCFClientService/?xsd=xsd3" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="05f6f664-4265-453e-bd8d-7165a2a5af8e" SourceId="1" SourceUrl="http://localhost:8000/WCFClientService/?xsd=xsd0" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="ba4490fc-b97e-4fdb-a5f8-5c7370f1c6da" SourceId="1" SourceUrl="http://localhost:8000/WCFClientService/?xsd=xsd2" />
+    <MetadataFile FileName="ClientService.wsdl" MetadataType="Wsdl" ID="0c5ead9b-9936-4fb5-bc3b-74bbccad92a6" SourceId="1" SourceUrl="http://localhost:8000/WCFClientService/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

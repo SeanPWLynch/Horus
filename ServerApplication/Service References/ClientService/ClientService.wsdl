@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:8000/WCFClientService/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8000/WCFClientService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8000/WCFClientService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SeanLynch.YearFourProject.ProofOfConcept.WCFPOC" />
+      <xsd:import schemaLocation="http://localhost:8000/WCFClientService/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IComputerData_GetComputerData_InputMessage">
@@ -19,6 +20,12 @@
   <wsdl:message name="IComputerData_GetComputer_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetComputerResponse" />
   </wsdl:message>
+  <wsdl:message name="IComputerData_StartProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartProcess" />
+  </wsdl:message>
+  <wsdl:message name="IComputerData_StartProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartProcessResponse" />
+  </wsdl:message>
   <wsdl:portType name="IComputerData">
     <wsdl:operation name="GetComputerData">
       <wsdl:input wsaw:Action="http://tempuri.org/IComputerData/GetComputerData" message="tns:IComputerData_GetComputerData_InputMessage" />
@@ -27,6 +34,10 @@
     <wsdl:operation name="GetComputer">
       <wsdl:input wsaw:Action="http://tempuri.org/IComputerData/GetComputer" message="tns:IComputerData_GetComputer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IComputerData/GetComputerResponse" message="tns:IComputerData_GetComputer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IComputerData/StartProcess" message="tns:IComputerData_StartProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IComputerData/StartProcessResponse" message="tns:IComputerData_StartProcess_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IComputerData" type="tns:IComputerData">
@@ -42,6 +53,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetComputer">
       <soap:operation soapAction="http://tempuri.org/IComputerData/GetComputer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <soap:operation soapAction="http://tempuri.org/IComputerData/StartProcess" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

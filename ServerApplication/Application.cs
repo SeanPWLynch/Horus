@@ -17,6 +17,19 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
 
                 Console.WriteLine(client.GetComputer().ComputerName);
 
+                Console.WriteLine("Type Name of Process To Start");
+
+                ClientComputer PC = client.GetComputer();
+
+                client.StartProcess("calc.exe");
+
+                Console.WriteLine("Running Processes \n");
+
+                foreach(string Process in PC.RunningProcesses)
+                {
+                    Console.WriteLine(Process + Environment.NewLine);
+                }
+
                 client.Close();
             }
             catch(Exception e)

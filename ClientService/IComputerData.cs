@@ -5,10 +5,11 @@ using System.Net;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Diagnostics;
 
 namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
+    
     [ServiceContract]
     public interface IComputerData
     {
@@ -17,15 +18,29 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
 
         [OperationContract]
         ClientComputer GetComputer();
+
+        [OperationContract]
+        void StartProcess(string ProcessName);
+
     }
 
     public class ClientComputer
     {
         public string ComputerName;
+        public string[] RunningProcesses;
 
         public ClientComputer()
         {
             this.ComputerName = Dns.GetHostName();
+            this.RunningProcesses = new string[Process.GetProcesses().Length];
+            int i = 0;
+            foreach(var process in Process.GetProcesses())
+            {
+                RunningProcesses[i] = process.ProcessName.ToString();
+                i++;
+            }
+
+            
         }
 
         public string GetComputerData()

@@ -26,6 +26,9 @@ namespace ServerApplication.ClientService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ComputerNameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] RunningProcessesField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -45,6 +48,19 @@ namespace ServerApplication.ClientService {
                 if ((object.ReferenceEquals(this.ComputerNameField, value) != true)) {
                     this.ComputerNameField = value;
                     this.RaisePropertyChanged("ComputerName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] RunningProcesses {
+            get {
+                return this.RunningProcessesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RunningProcessesField, value) != true)) {
+                    this.RunningProcessesField = value;
+                    this.RaisePropertyChanged("RunningProcesses");
                 }
             }
         }
@@ -74,6 +90,12 @@ namespace ServerApplication.ClientService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetComputer", ReplyAction="http://tempuri.org/IComputerData/GetComputerResponse")]
         System.Threading.Tasks.Task<ServerApplication.ClientService.ClientComputer> GetComputerAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/StartProcess", ReplyAction="http://tempuri.org/IComputerData/StartProcessResponse")]
+        void StartProcess(string ProcessName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/StartProcess", ReplyAction="http://tempuri.org/IComputerData/StartProcessResponse")]
+        System.Threading.Tasks.Task StartProcessAsync(string ProcessName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -117,6 +139,14 @@ namespace ServerApplication.ClientService {
         
         public System.Threading.Tasks.Task<ServerApplication.ClientService.ClientComputer> GetComputerAsync() {
             return base.Channel.GetComputerAsync();
+        }
+        
+        public void StartProcess(string ProcessName) {
+            base.Channel.StartProcess(ProcessName);
+        }
+        
+        public System.Threading.Tasks.Task StartProcessAsync(string ProcessName) {
+            return base.Channel.StartProcessAsync(ProcessName);
         }
     }
 }
