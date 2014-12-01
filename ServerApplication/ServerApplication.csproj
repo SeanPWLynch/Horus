@@ -56,28 +56,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Service References\ClientService\ClientService.wsdl" />
-    <None Include="Service References\ClientService\item.xsd">
+    <None Include="Service References\ClientService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ClientService\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ClientService\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\ClientService\item3.xsd">
+    <None Include="Service References\ClientService\SeanLynch.YearFourProject.ProofOfConcept.WCFPOC.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ClientService\ServerApplication.ClientService.ClientComputer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ClientService\service.wsdl" />
+    <None Include="Service References\ClientService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ClientService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ClientService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ClientService\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ClientService\configuration91.svcinfo" />
