@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Y4KI3P7X/zYUHcmcdDLyjpKBoLc=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="1ofcMP9MiveUS6a7Azsl4esCRvQ=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IComputerData">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IComputerData" contract="ClientService.IComputerData" bindingType="basicHttpBinding" address="http://localhost:8733/Design_Time_Addresses/WCFPOC/WCFClientService/" bindingConfiguration="BasicHttpBinding_IComputerData">
+    <endpoint name="BasicHttpBinding_IComputerData" contract="ClientService.IComputerData" bindingType="basicHttpBinding" address="http://localhost:8000/WCFClientService/ClientService" bindingConfiguration="BasicHttpBinding_IComputerData">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8733/Design_Time_Addresses/WCFPOC/WCFClientService/</serializedValue>
+          <serializedValue>http://localhost:8000/WCFClientService/ClientService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

@@ -20,7 +20,7 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
             try
             {
                 // Step 3 Add a service endpoint.
-                selfHost.AddServiceEndpoint(typeof(IComputerData), new WSHttpBinding(), "CalculatorService");
+                selfHost.AddServiceEndpoint(typeof(IComputerData), new BasicHttpBinding(), "ClientService");
 
                 // Step 4 Enable metadata exchange.
                 ServiceMetadataBehavior smb = new ServiceMetadataBehavior();

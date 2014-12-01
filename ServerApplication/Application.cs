@@ -11,12 +11,18 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
     {
         static void Main(string[] args)
         {
-            //Step 1: Create an instance of the WCF proxy.
-            ComputerDataClient client = new ComputerDataClient();
+            try
+            {
+                ComputerDataClient client = new ComputerDataClient();
 
-            Console.WriteLine(client.GetComputer().ComputerName);
-            
-            client.Close();
+                Console.WriteLine(client.GetComputer().ComputerName);
+
+                client.Close();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             Console.ReadLine();
         }
