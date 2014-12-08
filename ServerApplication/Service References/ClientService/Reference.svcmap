@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fb93642b-e1f2-4d60-8747-3ee510356fd2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c6de6e97-68b7-4aaa-8589-b019858ad593" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="caedbc2b-dba6-490f-b6f6-e08308f5593e" SourceId="1" SourceUrl="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="fe1f4ed2-1dad-4e58-9a08-e2164d04d36d" SourceId="1" SourceUrl="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="3011f0ec-897e-4ec0-98b8-552035e7e28d" SourceId="1" SourceUrl="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" />
-    <MetadataFile FileName="SeanLynch.YearFourProject.ProofOfConcept.WCFPOC.xsd" MetadataType="Schema" ID="9bff1bce-a636-4b99-98a1-963deb909398" SourceId="1" SourceUrl="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="98ec48f1-7ad8-4a6d-a50f-78649f54100d" SourceId="1" SourceUrl="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="01620b96-f9dc-425f-84a3-1424035124b3" SourceId="1" SourceUrl="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="0ca1ae45-5759-4f44-8f0f-1512559855ff" SourceId="1" SourceUrl="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="0084c5c1-9ad4-4c33-ba95-960e4ebb2d9d" SourceId="1" SourceUrl="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" />
+    <MetadataFile FileName="SeanLynch.YearFourProject.ProofOfConcept.WCFPOC.xsd" MetadataType="Schema" ID="535b88ed-7c79-492a-b024-217131fd2e91" SourceId="1" SourceUrl="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="3d0d84ed-2747-4c1f-8392-4569643af8a4" SourceId="1" SourceUrl="net.tcp://localhost:8734/WCFPOC/WCFClientService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

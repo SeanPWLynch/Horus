@@ -37,4 +37,16 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="SetCPUUsage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SeanLynch.YearFourProject.ProofOfConcept.WCFPOC" minOccurs="0" name="clientComputer" nillable="true" type="q2:ClientComputer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCPUUsageResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

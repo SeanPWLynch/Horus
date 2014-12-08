@@ -24,6 +24,9 @@ namespace ServerApplication.ClientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float CPUUsageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ComputerNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -36,6 +39,19 @@ namespace ServerApplication.ClientService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float CPUUsage {
+            get {
+                return this.CPUUsageField;
+            }
+            set {
+                if ((this.CPUUsageField.Equals(value) != true)) {
+                    this.CPUUsageField = value;
+                    this.RaisePropertyChanged("CPUUsage");
+                }
             }
         }
         
@@ -96,6 +112,12 @@ namespace ServerApplication.ClientService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/StartProcess", ReplyAction="http://tempuri.org/IComputerData/StartProcessResponse")]
         System.Threading.Tasks.Task StartProcessAsync(string ProcessName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/SetCPUUsage", ReplyAction="http://tempuri.org/IComputerData/SetCPUUsageResponse")]
+        void SetCPUUsage(ServerApplication.ClientService.ClientComputer clientComputer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/SetCPUUsage", ReplyAction="http://tempuri.org/IComputerData/SetCPUUsageResponse")]
+        System.Threading.Tasks.Task SetCPUUsageAsync(ServerApplication.ClientService.ClientComputer clientComputer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -147,6 +169,14 @@ namespace ServerApplication.ClientService {
         
         public System.Threading.Tasks.Task StartProcessAsync(string ProcessName) {
             return base.Channel.StartProcessAsync(ProcessName);
+        }
+        
+        public void SetCPUUsage(ServerApplication.ClientService.ClientComputer clientComputer) {
+            base.Channel.SetCPUUsage(clientComputer);
+        }
+        
+        public System.Threading.Tasks.Task SetCPUUsageAsync(ServerApplication.ClientService.ClientComputer clientComputer) {
+            return base.Channel.SetCPUUsageAsync(clientComputer);
         }
     }
 }

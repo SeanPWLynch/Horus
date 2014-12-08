@@ -22,12 +22,17 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
         [OperationContract]
         void StartProcess(string ProcessName);
 
+        [OperationContract]
+        void SetCPUUsage(ClientComputer clientComputer);
+
+
     }
 
     public class ClientComputer
     {
         public string ComputerName;
         public string[] RunningProcesses;
+        public float CPUUsage;
 
         public ClientComputer()
         {
@@ -46,6 +51,16 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
         public string GetComputerData()
         {
             return this.ComputerName;
+        }
+
+        public void SetCPUUsage()
+        {
+            var cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            cpuCounter.NextValue();
+            System.Threading.Thread.Sleep(1000); // wait a second to get a valid reading
+            var cpuusage = cpuCounter.NextValue();
+            this.CPUUsage = cpuusage;
+
         }
     }
 }
