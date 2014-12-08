@@ -23,7 +23,7 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
         void StartProcess(string ProcessName);
 
         [OperationContract]
-        void SetCPUUsage(ClientComputer clientComputer);
+        int GetClientCPUUsage(ClientComputer PC);
 
 
     }
@@ -32,7 +32,7 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
     {
         public string ComputerName;
         public string[] RunningProcesses;
-        public float CPUUsage;
+        public int CPUUsage;
 
         public ClientComputer()
         {
@@ -44,8 +44,6 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
                 RunningProcesses[i] = process.ProcessName.ToString();
                 i++;
             }
-
-            
         }
 
         public string GetComputerData()
@@ -55,12 +53,11 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
 
         public void SetCPUUsage()
         {
-            var cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            PerformanceCounter cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             cpuCounter.NextValue();
             System.Threading.Thread.Sleep(1000); // wait a second to get a valid reading
-            var cpuusage = cpuCounter.NextValue();
-            this.CPUUsage = cpuusage;
 
+            this.CPUUsage = (int)cpuCounter.NextValue();
         }
     }
 }

@@ -28,12 +28,10 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
             Process.Start(ProcessName);
         }
 
-        public void SetCPUUsage(ClientComputer clientComputer)
+        public int GetClientCPUUsage(ClientComputer PC)
         {
-            var cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
-            cpuCounter.NextValue();
-            System.Threading.Thread.Sleep(1000); // wait a second to get a valid reading
-            clientComputer.CPUUsage = cpuCounter.NextValue();
+            PC.SetCPUUsage();
+            return PC.CPUUsage;
         }
     }
 }

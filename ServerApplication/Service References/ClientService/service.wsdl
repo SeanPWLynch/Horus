@@ -59,11 +59,11 @@
   <wsdl:message name="IComputerData_StartProcess_OutputMessage">
     <wsdl:part name="parameters" element="tns:StartProcessResponse" />
   </wsdl:message>
-  <wsdl:message name="IComputerData_SetCPUUsage_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetCPUUsage" />
+  <wsdl:message name="IComputerData_GetClientCPUUsage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCPUUsage" />
   </wsdl:message>
-  <wsdl:message name="IComputerData_SetCPUUsage_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetCPUUsageResponse" />
+  <wsdl:message name="IComputerData_GetClientCPUUsage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientCPUUsageResponse" />
   </wsdl:message>
   <wsdl:portType name="IComputerData">
     <wsdl:operation name="GetComputerData">
@@ -78,9 +78,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IComputerData/StartProcess" message="tns:IComputerData_StartProcess_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IComputerData/StartProcessResponse" message="tns:IComputerData_StartProcess_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SetCPUUsage">
-      <wsdl:input wsaw:Action="http://tempuri.org/IComputerData/SetCPUUsage" message="tns:IComputerData_SetCPUUsage_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IComputerData/SetCPUUsageResponse" message="tns:IComputerData_SetCPUUsage_OutputMessage" />
+    <wsdl:operation name="GetClientCPUUsage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IComputerData/GetClientCPUUsage" message="tns:IComputerData_GetClientCPUUsage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IComputerData/GetClientCPUUsageResponse" message="tns:IComputerData_GetClientCPUUsage_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IComputerData" type="tns:IComputerData">
@@ -114,8 +114,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SetCPUUsage">
-      <soap12:operation soapAction="http://tempuri.org/IComputerData/SetCPUUsage" style="document" />
+    <wsdl:operation name="GetClientCPUUsage">
+      <soap12:operation soapAction="http://tempuri.org/IComputerData/GetClientCPUUsage" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

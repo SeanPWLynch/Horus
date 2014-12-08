@@ -30,9 +30,8 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
                     Console.WriteLine(Process + Environment.NewLine);
                 }
 
-                client.SetCPUUsage(PC);
+                Console.WriteLine(client.GetClientCPUUsage(PC));
 
-                Console.WriteLine(PC.CPUUsage);
 
                 client.Close();
             }

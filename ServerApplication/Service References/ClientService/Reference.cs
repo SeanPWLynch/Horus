@@ -24,7 +24,7 @@ namespace ServerApplication.ClientService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float CPUUsageField;
+        private int CPUUsageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ComputerNameField;
@@ -43,7 +43,7 @@ namespace ServerApplication.ClientService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public float CPUUsage {
+        public int CPUUsage {
             get {
                 return this.CPUUsageField;
             }
@@ -113,11 +113,11 @@ namespace ServerApplication.ClientService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/StartProcess", ReplyAction="http://tempuri.org/IComputerData/StartProcessResponse")]
         System.Threading.Tasks.Task StartProcessAsync(string ProcessName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/SetCPUUsage", ReplyAction="http://tempuri.org/IComputerData/SetCPUUsageResponse")]
-        void SetCPUUsage(ServerApplication.ClientService.ClientComputer clientComputer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetClientCPUUsage", ReplyAction="http://tempuri.org/IComputerData/GetClientCPUUsageResponse")]
+        int GetClientCPUUsage(ServerApplication.ClientService.ClientComputer PC);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/SetCPUUsage", ReplyAction="http://tempuri.org/IComputerData/SetCPUUsageResponse")]
-        System.Threading.Tasks.Task SetCPUUsageAsync(ServerApplication.ClientService.ClientComputer clientComputer);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetClientCPUUsage", ReplyAction="http://tempuri.org/IComputerData/GetClientCPUUsageResponse")]
+        System.Threading.Tasks.Task<int> GetClientCPUUsageAsync(ServerApplication.ClientService.ClientComputer PC);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -171,12 +171,12 @@ namespace ServerApplication.ClientService {
             return base.Channel.StartProcessAsync(ProcessName);
         }
         
-        public void SetCPUUsage(ServerApplication.ClientService.ClientComputer clientComputer) {
-            base.Channel.SetCPUUsage(clientComputer);
+        public int GetClientCPUUsage(ServerApplication.ClientService.ClientComputer PC) {
+            return base.Channel.GetClientCPUUsage(PC);
         }
         
-        public System.Threading.Tasks.Task SetCPUUsageAsync(ServerApplication.ClientService.ClientComputer clientComputer) {
-            return base.Channel.SetCPUUsageAsync(clientComputer);
+        public System.Threading.Tasks.Task<int> GetClientCPUUsageAsync(ServerApplication.ClientService.ClientComputer PC) {
+            return base.Channel.GetClientCPUUsageAsync(PC);
         }
     }
 }
