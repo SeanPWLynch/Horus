@@ -114,10 +114,10 @@ namespace ServerApplication.ClientService {
         System.Threading.Tasks.Task StartProcessAsync(string ProcessName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetClientCPUUsage", ReplyAction="http://tempuri.org/IComputerData/GetClientCPUUsageResponse")]
-        int GetClientCPUUsage(ServerApplication.ClientService.ClientComputer PC);
+        int GetClientCPUUsage();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetClientCPUUsage", ReplyAction="http://tempuri.org/IComputerData/GetClientCPUUsageResponse")]
-        System.Threading.Tasks.Task<int> GetClientCPUUsageAsync(ServerApplication.ClientService.ClientComputer PC);
+        System.Threading.Tasks.Task<int> GetClientCPUUsageAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -171,12 +171,12 @@ namespace ServerApplication.ClientService {
             return base.Channel.StartProcessAsync(ProcessName);
         }
         
-        public int GetClientCPUUsage(ServerApplication.ClientService.ClientComputer PC) {
-            return base.Channel.GetClientCPUUsage(PC);
+        public int GetClientCPUUsage() {
+            return base.Channel.GetClientCPUUsage();
         }
         
-        public System.Threading.Tasks.Task<int> GetClientCPUUsageAsync(ServerApplication.ClientService.ClientComputer PC) {
-            return base.Channel.GetClientCPUUsageAsync(PC);
+        public System.Threading.Tasks.Task<int> GetClientCPUUsageAsync() {
+            return base.Channel.GetClientCPUUsageAsync();
         }
     }
 }

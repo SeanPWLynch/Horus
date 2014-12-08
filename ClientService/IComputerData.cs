@@ -23,7 +23,7 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
         void StartProcess(string ProcessName);
 
         [OperationContract]
-        int GetClientCPUUsage(ClientComputer PC);
+        int GetClientCPUUsage();
 
 
     }

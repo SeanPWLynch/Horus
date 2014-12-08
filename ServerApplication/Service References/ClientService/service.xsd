@@ -39,9 +39,7 @@
   </xs:element>
   <xs:element name="GetClientCPUUsage">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SeanLynch.YearFourProject.ProofOfConcept.WCFPOC" minOccurs="0" name="PC" nillable="true" type="q2:ClientComputer" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="GetClientCPUUsageResponse">

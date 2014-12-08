@@ -28,10 +28,10 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
             Process.Start(ProcessName);
         }
 
-        public int GetClientCPUUsage(ClientComputer PC)
+        public int GetClientCPUUsage()
         {
-            PC.SetCPUUsage();
-            return PC.CPUUsage;
+            clientComputer.SetCPUUsage();
+            return clientComputer.CPUUsage;
         }
     }
 }
