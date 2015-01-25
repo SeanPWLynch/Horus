@@ -15,6 +15,7 @@ namespace TestApplication
             {
                 //Test connection To Server Admin Service, expected return is server name
                 ServerAdminServiceClient client = new ServerAdminServiceClient();
+                
 
                 Console.WriteLine(client.GetHostName());
 

@@ -32,13 +32,13 @@ namespace ServiceHostApplication
 
                 // Step 4 Enable metadata exchange.
                 ServiceMetadataBehavior AdminMetaBehaviour = new ServiceMetadataBehavior();
-
                 AdminHost.Description.Behaviors.Add(AdminMetaBehaviour);
 
                 // Step 5 Start the service.
                 AdminHost.Open();
                 Console.WriteLine("The service is ready.");
                 Console.WriteLine(AdminHost.BaseAddresses[0]);
+                
                 Console.WriteLine();
                 Console.WriteLine("Press <ENTER> to terminate service.");
                 Console.WriteLine();
