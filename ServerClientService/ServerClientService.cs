@@ -10,22 +10,22 @@ namespace ServerClientService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in both code and config file together.
     public class ServerClientService : IServerClientService
     {
-        public string GetHostName()
+        public string GetData(int value)
         {
-            return Environment.MachineName;
+            return string.Format("You entered: {0}", value);
         }
 
-        public Computer GetComputer(Computer computer)
+        public CompositeType GetDataUsingDataContract(CompositeType composite)
         {
-            if (computer == null)
+            if (composite == null)
             {
                 throw new ArgumentNullException("composite");
             }
-            if (computer.BoolValue)
+            if (composite.BoolValue)
             {
-                computer.StringValue += "Suffix";
+                composite.StringValue += "Suffix";
             }
-            return computer;
+            return composite;
         }
     }
 }

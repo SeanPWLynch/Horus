@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestApplication.AdminClient;
+using TestApplication.ClientClient;
 
 namespace TestApplication
 {
@@ -13,8 +13,8 @@ namespace TestApplication
         {
             try
             {
-                //Test connection To Server Admin Service, expected return is server name
-                ServerAdminServiceClient client = new ServerAdminServiceClient();
+                //Test connection To Server Client Service, expected return is server name
+                ServerClientServiceClient client = new ServerClientServiceClient();
                 
 
                 Console.WriteLine(client.GetHostName());
