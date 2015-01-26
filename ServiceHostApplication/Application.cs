@@ -14,10 +14,10 @@ namespace ServiceHostApplication
         {
             
             // Step 1 Create a URI to serve as the base address.
-            //Need to update to Uri Array/List For Multiple Admins
+            //Need to update to Uri Array/List For Multiple Clients
 
             //Port 12000 = Admin Service For Incoming Commands
-            //Port 13000 = Admin Service For Incoming Commands
+            //Port 13000 = Client Service For Incoming Commands
 
             Uri AdminAddress = new Uri("net.tcp://localhost:12000/ServerAdminService/");
 
