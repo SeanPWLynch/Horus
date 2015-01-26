@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServerApplication.AdminService {
+namespace ServerApplication.ClientService {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AdminComputer", Namespace="http://schemas.datacontract.org/2004/07/SeanLynch.YearFourProject.ProofOfConcept." +
+    [System.Runtime.Serialization.DataContractAttribute(Name="ClientComputer", Namespace="http://schemas.datacontract.org/2004/07/SeanLynch.YearFourProject.ProofOfConcept." +
         "WCFPOC")]
     [System.SerializableAttribute()]
-    public partial class AdminComputer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ClientComputer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -92,7 +92,7 @@ namespace ServerApplication.AdminService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AdminService.IComputerData")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ClientService.IComputerData")]
     public interface IComputerData {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetComputerData", ReplyAction="http://tempuri.org/IComputerData/GetComputerDataResponse")]
@@ -102,10 +102,10 @@ namespace ServerApplication.AdminService {
         System.Threading.Tasks.Task<string> GetComputerDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetComputer", ReplyAction="http://tempuri.org/IComputerData/GetComputerResponse")]
-        ServerApplication.AdminService.AdminComputer GetComputer();
+        ServerApplication.ClientService.ClientComputer GetComputer();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetComputer", ReplyAction="http://tempuri.org/IComputerData/GetComputerResponse")]
-        System.Threading.Tasks.Task<ServerApplication.AdminService.AdminComputer> GetComputerAsync();
+        System.Threading.Tasks.Task<ServerApplication.ClientService.ClientComputer> GetComputerAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/StartProcess", ReplyAction="http://tempuri.org/IComputerData/StartProcessResponse")]
         void StartProcess(string ProcessName);
@@ -113,37 +113,37 @@ namespace ServerApplication.AdminService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/StartProcess", ReplyAction="http://tempuri.org/IComputerData/StartProcessResponse")]
         System.Threading.Tasks.Task StartProcessAsync(string ProcessName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetAdminCPUUsage", ReplyAction="http://tempuri.org/IComputerData/GetAdminCPUUsageResponse")]
-        int GetAdminCPUUsage();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetClientCPUUsage", ReplyAction="http://tempuri.org/IComputerData/GetClientCPUUsageResponse")]
+        int GetClientCPUUsage();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetAdminCPUUsage", ReplyAction="http://tempuri.org/IComputerData/GetAdminCPUUsageResponse")]
-        System.Threading.Tasks.Task<int> GetAdminCPUUsageAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IComputerData/GetClientCPUUsage", ReplyAction="http://tempuri.org/IComputerData/GetClientCPUUsageResponse")]
+        System.Threading.Tasks.Task<int> GetClientCPUUsageAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IComputerDataChannel : ServerApplication.AdminService.IComputerData, System.ServiceModel.IAdminChannel {
+    public interface IComputerDataChannel : ServerApplication.ClientService.IComputerData, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ComputerDataAdmin : System.ServiceModel.AdminBase<ServerApplication.AdminService.IComputerData>, ServerApplication.AdminService.IComputerData {
+    public partial class ComputerDataClient : System.ServiceModel.ClientBase<ServerApplication.ClientService.IComputerData>, ServerApplication.ClientService.IComputerData {
         
-        public ComputerDataAdmin() {
+        public ComputerDataClient() {
         }
         
-        public ComputerDataAdmin(string endpointConfigurationName) : 
+        public ComputerDataClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ComputerDataAdmin(string endpointConfigurationName, string remoteAddress) : 
+        public ComputerDataClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ComputerDataAdmin(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ComputerDataClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ComputerDataAdmin(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ComputerDataClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -155,11 +155,11 @@ namespace ServerApplication.AdminService {
             return base.Channel.GetComputerDataAsync();
         }
         
-        public ServerApplication.AdminService.AdminComputer GetComputer() {
+        public ServerApplication.ClientService.ClientComputer GetComputer() {
             return base.Channel.GetComputer();
         }
         
-        public System.Threading.Tasks.Task<ServerApplication.AdminService.AdminComputer> GetComputerAsync() {
+        public System.Threading.Tasks.Task<ServerApplication.ClientService.ClientComputer> GetComputerAsync() {
             return base.Channel.GetComputerAsync();
         }
         
@@ -171,12 +171,12 @@ namespace ServerApplication.AdminService {
             return base.Channel.StartProcessAsync(ProcessName);
         }
         
-        public int GetAdminCPUUsage() {
-            return base.Channel.GetAdminCPUUsage();
+        public int GetClientCPUUsage() {
+            return base.Channel.GetClientCPUUsage();
         }
         
-        public System.Threading.Tasks.Task<int> GetAdminCPUUsageAsync() {
-            return base.Channel.GetAdminCPUUsageAsync();
+        public System.Threading.Tasks.Task<int> GetClientCPUUsageAsync() {
+            return base.Channel.GetClientCPUUsageAsync();
         }
     }
 }
