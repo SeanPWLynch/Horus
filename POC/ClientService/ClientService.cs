@@ -8,19 +8,19 @@ using System.Diagnostics;
 
 namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
 {
-    public class ClientService : IComputerData
+    public class AdminService : IComputerData
     {
-        ClientComputer clientComputer = new ClientComputer();
+        AdminComputer AdminComputer = new AdminComputer();
         
         public string GetComputerData()
         {
-            Console.WriteLine(clientComputer.GetComputerData());
-            return clientComputer.GetComputerData();
+            Console.WriteLine(AdminComputer.GetComputerData());
+            return AdminComputer.GetComputerData();
         }
 
-        public ClientComputer GetComputer()
+        public AdminComputer GetComputer()
         {
-            return clientComputer;
+            return AdminComputer;
         }
 
         public void StartProcess(string ProcessName)
@@ -28,10 +28,10 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
             Process.Start(ProcessName);
         }
 
-        public int GetClientCPUUsage()
+        public int GetAdminCPUUsage()
         {
-            clientComputer.SetCPUUsage();
-            return clientComputer.CPUUsage;
+            AdminComputer.SetCPUUsage();
+            return AdminComputer.CPUUsage;
         }
     }
 }

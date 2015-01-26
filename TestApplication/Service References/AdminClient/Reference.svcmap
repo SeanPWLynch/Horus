@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="85ac7b2e-603a-48b0-9407-e98686fbb325" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
-  <ClientOptions>
+  <AdminOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
@@ -17,15 +17,15 @@
     <ReferencedAssemblies />
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
-  </ClientOptions>
+  </AdminOptions>
   <MetadataSources>
-    <MetadataSource Address="net.tcp://localhost:12000/ServerClientService/ServerClientService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="87bff458-79ae-4c8b-b4db-e59b7748543f" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerClientService/ServerClientService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="9e2dca12-7af3-4acb-bd38-602a7056b435" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerClientService/ServerClientService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="acb0d92d-bf7c-40b9-afaa-b03d2db3b004" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerClientService/ServerClientService/mex" />
-    <MetadataFile FileName="ServerClientService.xsd" MetadataType="Schema" ID="bed681eb-e9c4-4e8a-bc85-9d5af4211b65" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerClientService/ServerClientService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="87bff458-79ae-4c8b-b4db-e59b7748543f" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="9e2dca12-7af3-4acb-bd38-602a7056b435" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="acb0d92d-bf7c-40b9-afaa-b03d2db3b004" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
+    <MetadataFile FileName="ServerAdminService.xsd" MetadataType="Schema" ID="bed681eb-e9c4-4e8a-bc85-9d5af4211b65" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

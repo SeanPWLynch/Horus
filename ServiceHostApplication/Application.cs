@@ -14,30 +14,30 @@ namespace ServiceHostApplication
         {
             
             // Step 1 Create a URI to serve as the base address.
-            //Need to update to Uri Array/List For Multiple Clients
+            //Need to update to Uri Array/List For Multiple Admins
 
-            //Port 12000 = Client Service For Incoming Commands
-            //Port 13000 = Client Service For Incoming Commands
+            //Port 12000 = Admin Service For Incoming Commands
+            //Port 13000 = Admin Service For Incoming Commands
 
-            Uri ClientAddress = new Uri("net.tcp://localhost:12000/ServerClientService/");
+            Uri AdminAddress = new Uri("net.tcp://localhost:12000/ServerAdminService/");
 
             // Step 2 Create a ServiceHost instance
-            ServiceHost ClientHost = new ServiceHost(typeof(ServerClientService.ServerClientService), ClientAddress);
+            ServiceHost AdminHost = new ServiceHost(typeof(ServerAdminService.ServerAdminService), AdminAddress);
 
             try
             {
                 // Step 3 Add a service endpoint.
-                ClientHost.AddServiceEndpoint(typeof(ServerClientService.IServerClientService), new NetTcpBinding(SecurityMode.None), "ServerClientService");
+                AdminHost.AddServiceEndpoint(typeof(ServerAdminService.IServerAdminService), new NetTcpBinding(SecurityMode.None), "ServerAdminService");
 
 
                 // Step 4 Enable metadata exchange.
-                ServiceMetadataBehavior ClientMetaBehaviour = new ServiceMetadataBehavior();
-                ClientHost.Description.Behaviors.Add(ClientMetaBehaviour);
+                ServiceMetadataBehavior AdminMetaBehaviour = new ServiceMetadataBehavior();
+                AdminHost.Description.Behaviors.Add(AdminMetaBehaviour);
 
                 // Step 5 Start the service.
-                ClientHost.Open();
+                AdminHost.Open();
                 Console.WriteLine("The service is ready.");
-                Console.WriteLine(ClientHost.BaseAddresses[0]);
+                Console.WriteLine(AdminHost.BaseAddresses[0]);
                 
                 Console.WriteLine();
                 Console.WriteLine("Press <ENTER> to terminate service.");
@@ -45,13 +45,13 @@ namespace ServiceHostApplication
                 Console.ReadLine();
 
                 // Close the ServiceHostBase to shutdown the service.
-                ClientHost.Close();
+                AdminHost.Close();
             }
             catch (Exception ce)
             {
                 Console.WriteLine("An exception occurred: {0}", ce.Message);
                 Console.ReadLine();
-                ClientHost.Abort();
+                AdminHost.Abort();
             }
         }
     }

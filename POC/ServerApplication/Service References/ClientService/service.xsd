@@ -21,7 +21,7 @@
   <xs:element name="GetComputerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SeanLynch.YearFourProject.ProofOfConcept.WCFPOC" minOccurs="0" name="GetComputerResult" nillable="true" type="q1:ClientComputer" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SeanLynch.YearFourProject.ProofOfConcept.WCFPOC" minOccurs="0" name="GetComputerResult" nillable="true" type="q1:AdminComputer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -37,15 +37,15 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetClientCPUUsage">
+  <xs:element name="GetAdminCPUUsage">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetClientCPUUsageResponse">
+  <xs:element name="GetAdminCPUUsageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetClientCPUUsageResult" type="xs:int" />
+        <xs:element minOccurs="0" name="GetAdminCPUUsageResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

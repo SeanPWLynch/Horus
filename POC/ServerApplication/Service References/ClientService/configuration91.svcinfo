@@ -87,7 +87,7 @@
         <property path="/security/transport" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.TcpTransportSecurityElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.TcpTransportSecurityElement</serializedValue>
         </property>
-        <property path="/security/transport/clientCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.TcpClientCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <property path="/security/transport/AdminCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.TcpAdminCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>Windows</serializedValue>
         </property>
         <property path="/security/transport/protectionLevel" isComplexType="false" isExplicitlyDefined="false" clrType="System.Net.Security.ProtectionLevel, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -108,7 +108,7 @@
         <property path="/security/message" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.MessageSecurityOverTcpElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.MessageSecurityOverTcpElement</serializedValue>
         </property>
-        <property path="/security/message/clientCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.MessageCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <property path="/security/message/AdminCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.MessageCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>Windows</serializedValue>
         </property>
         <property path="/security/message/algorithmSuite" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.Security.SecurityAlgorithmSuite, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -118,10 +118,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IComputerData1" contract="ClientService.IComputerData" bindingType="netTcpBinding" address="net.tcp://localhost:8734/WCFPOC/WCFClientService/" bindingConfiguration="NetTcpBinding_IComputerData1">
+    <endpoint name="NetTcpBinding_IComputerData1" contract="AdminService.IComputerData" bindingType="netTcpBinding" address="net.tcp://localhost:8734/WCFPOC/WCFAdminService/" bindingConfiguration="NetTcpBinding_IComputerData1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://localhost:8734/WCFPOC/WCFClientService/</serializedValue>
+          <serializedValue>net.tcp://localhost:8734/WCFPOC/WCFAdminService/</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -133,7 +133,7 @@
           <serializedValue>NetTcpBinding_IComputerData1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ClientService.IComputerData</serializedValue>
+          <serializedValue>AdminService.IComputerData</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

@@ -8,14 +8,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TestApplication.ClientClient {
+namespace TestApplication.AdminAdmin {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Computer", Namespace="http://schemas.datacontract.org/2004/07/ServerClientService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Computer", Namespace="http://schemas.datacontract.org/2004/07/ServerAdminService")]
     [System.SerializableAttribute()]
     public partial class Computer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -75,46 +75,46 @@ namespace TestApplication.ClientClient {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ClientClient.IServerClientService")]
-    public interface IServerClientService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AdminAdmin.IServerAdminService")]
+    public interface IServerAdminService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerClientService/GetHostName", ReplyAction="http://tempuri.org/IServerClientService/GetHostNameResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerAdminService/GetHostName", ReplyAction="http://tempuri.org/IServerAdminService/GetHostNameResponse")]
         string GetHostName();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerClientService/GetHostName", ReplyAction="http://tempuri.org/IServerClientService/GetHostNameResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerAdminService/GetHostName", ReplyAction="http://tempuri.org/IServerAdminService/GetHostNameResponse")]
         System.Threading.Tasks.Task<string> GetHostNameAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerClientService/GetComputer", ReplyAction="http://tempuri.org/IServerClientService/GetComputerResponse")]
-        TestApplication.ClientClient.Computer GetComputer(TestApplication.ClientClient.Computer composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerAdminService/GetComputer", ReplyAction="http://tempuri.org/IServerAdminService/GetComputerResponse")]
+        TestApplication.AdminAdmin.Computer GetComputer(TestApplication.AdminAdmin.Computer composite);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerClientService/GetComputer", ReplyAction="http://tempuri.org/IServerClientService/GetComputerResponse")]
-        System.Threading.Tasks.Task<TestApplication.ClientClient.Computer> GetComputerAsync(TestApplication.ClientClient.Computer composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerAdminService/GetComputer", ReplyAction="http://tempuri.org/IServerAdminService/GetComputerResponse")]
+        System.Threading.Tasks.Task<TestApplication.AdminAdmin.Computer> GetComputerAsync(TestApplication.AdminAdmin.Computer composite);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServerClientServiceChannel : TestApplication.ClientClient.IServerClientService, System.ServiceModel.IClientChannel {
+    public interface IServerAdminServiceChannel : TestApplication.AdminAdmin.IServerAdminService, System.ServiceModel.IAdminChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServerClientServiceClient : System.ServiceModel.ClientBase<TestApplication.ClientClient.IServerClientService>, TestApplication.ClientClient.IServerClientService {
+    public partial class ServerAdminServiceAdmin : System.ServiceModel.AdminBase<TestApplication.AdminAdmin.IServerAdminService>, TestApplication.AdminAdmin.IServerAdminService {
         
-        public ServerClientServiceClient() {
+        public ServerAdminServiceAdmin() {
         }
         
-        public ServerClientServiceClient(string endpointConfigurationName) : 
+        public ServerAdminServiceAdmin(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServerClientServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public ServerAdminServiceAdmin(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServerClientServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServerAdminServiceAdmin(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServerClientServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServerAdminServiceAdmin(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -126,11 +126,11 @@ namespace TestApplication.ClientClient {
             return base.Channel.GetHostNameAsync();
         }
         
-        public TestApplication.ClientClient.Computer GetComputer(TestApplication.ClientClient.Computer composite) {
+        public TestApplication.AdminAdmin.Computer GetComputer(TestApplication.AdminAdmin.Computer composite) {
             return base.Channel.GetComputer(composite);
         }
         
-        public System.Threading.Tasks.Task<TestApplication.ClientClient.Computer> GetComputerAsync(TestApplication.ClientClient.Computer composite) {
+        public System.Threading.Tasks.Task<TestApplication.AdminAdmin.Computer> GetComputerAsync(TestApplication.AdminAdmin.Computer composite) {
             return base.Channel.GetComputerAsync(composite);
         }
     }

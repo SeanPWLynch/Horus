@@ -17,24 +17,24 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
         string GetComputerData();
 
         [OperationContract]
-        ClientComputer GetComputer();
+        AdminComputer GetComputer();
 
         [OperationContract]
         void StartProcess(string ProcessName);
 
         [OperationContract]
-        int GetClientCPUUsage();
+        int GetAdminCPUUsage();
 
 
     }
 
-    public class ClientComputer
+    public class AdminComputer
     {
         public string ComputerName;
         public string[] RunningProcesses;
         public int CPUUsage;
 
-        public ClientComputer()
+        public AdminComputer()
         {
             this.ComputerName = Dns.GetHostName();
             this.RunningProcesses = new string[Process.GetProcesses().Length];

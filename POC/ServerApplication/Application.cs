@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ServerApplication.ClientService;
+using ServerApplication.AdminService;
 
 namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
 {
@@ -13,25 +13,25 @@ namespace SeanLynch.YearFourProject.ProofOfConcept.WCFPOC
         {
             try
             {
-                ComputerDataClient client = new ComputerDataClient();
+                ComputerDataAdmin Admin = new ComputerDataAdmin();
 
-                Console.WriteLine(client.GetComputer().ComputerName);
+                Console.WriteLine(Admin.GetComputer().ComputerName);
 
                 Console.WriteLine("Type Name of Process To Start");
 
-                client.StartProcess("calc.exe");
+                Admin.StartProcess("calc.exe");
 
                 Console.WriteLine("Running Processes \n");
 
-                foreach(string Process in client.GetComputer().RunningProcesses)
+                foreach(string Process in Admin.GetComputer().RunningProcesses)
                 {
                     Console.WriteLine(Process + Environment.NewLine);
                 }
 
-                Console.WriteLine(client.GetClientCPUUsage());
+                Console.WriteLine(Admin.GetAdminCPUUsage());
 
 
-                client.Close();
+                Admin.Close();
             }
             catch(Exception e)
             {

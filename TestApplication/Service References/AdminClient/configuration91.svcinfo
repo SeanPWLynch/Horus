@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="3rNSrJI01HMwmVv1lmeJ/rukxhg=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IServerClientService">
+    <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IServerAdminService">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IServerClientService</serializedValue>
+          <serializedValue>NetTcpBinding_IServerAdminService</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -87,7 +87,7 @@
         <property path="/security/transport" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.TcpTransportSecurityElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.TcpTransportSecurityElement</serializedValue>
         </property>
-        <property path="/security/transport/clientCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.TcpClientCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <property path="/security/transport/AdminCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.TcpAdminCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>Windows</serializedValue>
         </property>
         <property path="/security/transport/protectionLevel" isComplexType="false" isExplicitlyDefined="false" clrType="System.Net.Security.ProtectionLevel, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -108,7 +108,7 @@
         <property path="/security/message" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.MessageSecurityOverTcpElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.MessageSecurityOverTcpElement</serializedValue>
         </property>
-        <property path="/security/message/clientCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.MessageCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <property path="/security/message/AdminCredentialType" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.MessageCredentialType, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>Windows</serializedValue>
         </property>
         <property path="/security/message/algorithmSuite" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.Security.SecurityAlgorithmSuite, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -118,10 +118,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IServerClientService" contract="ClientClient.IServerClientService" bindingType="netTcpBinding" address="net.tcp://localhost:12000/ServerClientService/ServerClientService/" bindingConfiguration="NetTcpBinding_IServerClientService">
+    <endpoint name="NetTcpBinding_IServerAdminService" contract="AdminAdmin.IServerAdminService" bindingType="netTcpBinding" address="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/" bindingConfiguration="NetTcpBinding_IServerAdminService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://localhost:12000/ServerClientService/ServerClientService/</serializedValue>
+          <serializedValue>net.tcp://localhost:12000/ServerAdminService/ServerAdminService/</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -130,10 +130,10 @@
           <serializedValue>netTcpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IServerClientService</serializedValue>
+          <serializedValue>NetTcpBinding_IServerAdminService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ClientClient.IServerClientService</serializedValue>
+          <serializedValue>AdminAdmin.IServerAdminService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -193,7 +193,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IServerClientService</serializedValue>
+          <serializedValue>NetTcpBinding_IServerAdminService</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
