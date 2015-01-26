@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestApplication.AdminClient;
+using TestApplication.UserClient;
 
 namespace TestApplication
 {
@@ -14,8 +15,14 @@ namespace TestApplication
             try
             {
                 //Test connection To Server Admin Service, expected return is server name
-                ServerAdminServiceClient client = new ServerAdminServiceClient();
+                ServerAdminServiceClient admin = new ServerAdminServiceClient();
+
+                //Test connection To Client Service, expected return is server name
+                ServerClientServiceClient client = new ServerClientServiceClient();
+               
                 
+
+                Console.WriteLine(admin.GetHostName());
 
                 Console.WriteLine(client.GetHostName());
 

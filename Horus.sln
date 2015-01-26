@@ -31,6 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerApplication", "POC\Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication", "TestApplication\TestApplication.csproj", "{70F70EE7-9B28-4C67-AE9D-98B2D96D3B49}"
 	ProjectSection(ProjectDependencies) = postProject
+		{89F530BC-3A26-48BA-9A5B-1133842CE5C5} = {89F530BC-3A26-48BA-9A5B-1133842CE5C5}
 		{13BE62D0-5493-4BCA-8FB8-5C261A36702C} = {13BE62D0-5493-4BCA-8FB8-5C261A36702C}
 	EndProjectSection
 EndProject

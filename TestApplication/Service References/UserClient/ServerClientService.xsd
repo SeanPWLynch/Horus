@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ServerClientService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ServerClientService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Computer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Computer" nillable="true" type="tns:Computer" />
+</xs:schema>

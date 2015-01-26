@@ -25,7 +25,7 @@ namespace TestApplication {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("test-win7-001")]
+        [global::System.Configuration.DefaultSettingValueAttribute("dev-server2012-dc")]
         public string Server {
             get {
                 return ((string)(this["Server"]));

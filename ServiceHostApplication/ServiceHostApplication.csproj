@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
+    <Compile Include="HostingApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +52,10 @@
     <ProjectReference Include="..\ServerAdminService\ServerAdminService.csproj">
       <Project>{13be62d0-5493-4bca-8fb8-5c261a36702c}</Project>
       <Name>ServerAdminService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerClientService\ServerClientService.csproj">
+      <Project>{89f530bc-3a26-48ba-9a5b-1133842ce5c5}</Project>
+      <Name>ServerClientService</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
