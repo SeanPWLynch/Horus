@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TestApplication.AdminClient;
 using TestApplication.UserClient;
-
+using TestApplication.ClientSideService;
 namespace TestApplication
 {
     class TestingApplication
@@ -20,13 +20,18 @@ namespace TestApplication
                 //Test connection To Client Service, expected return is server name
                 ServerClientServiceClient client = new ServerClientServiceClient();
                
-                
+                //Test connection to Client Side Service
+                ClientSideServiceClient ClientSide = new ClientSideServiceClient();
+
+                Console.WriteLine(ClientSide.GetHostName());
 
                 Console.WriteLine(admin.GetHostName());
 
                 Console.WriteLine(client.GetHostName());
 
+                admin.Close();
                 client.Close();
+                ClientSide.Close();
             }
             catch(Exception e)
             {

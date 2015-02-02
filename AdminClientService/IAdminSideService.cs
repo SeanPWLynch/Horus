@@ -9,13 +9,13 @@ namespace AdminClientService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface IService1
+    public interface IAdminSideService
     {
         [OperationContract]
-        string GetData(int value);
+        string GetHostName();
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        Computer GetComputer(Computer composite);
 
         // TODO: Add your service operations here
     }
@@ -23,7 +23,7 @@ namespace AdminClientService
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "AdminClientService.ContractType".
     [DataContract]
-    public class CompositeType
+    public class Computer
     {
         bool boolValue = true;
         string stringValue = "Hello ";
@@ -42,4 +42,5 @@ namespace AdminClientService
             set { stringValue = value; }
         }
     }
+
 }
