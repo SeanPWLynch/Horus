@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TestApplication.AdminClient;
 using TestApplication.UserClient;
 using TestApplication.ClientSideService;
+using TestApplication.AdminSideService;
 namespace TestApplication
 {
     class TestingApplication
@@ -23,11 +24,17 @@ namespace TestApplication
                 //Test connection to Client Side Service
                 ClientSideServiceClient ClientSide = new ClientSideServiceClient();
 
+                //Test Connection To Admin Side Service
+                AdminSideServiceClient AdminSide = new AdminSideServiceClient();
+                
+
                 Console.WriteLine(ClientSide.GetHostName());
 
                 Console.WriteLine(admin.GetHostName());
 
                 Console.WriteLine(client.GetHostName());
+
+                Console.WriteLine(AdminSide.GetHostName());
 
                 admin.Close();
                 client.Close();

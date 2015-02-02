@@ -18,7 +18,7 @@ namespace AdminSideHostedService
 
             //Port 16000
 
-            Uri AdminSideAddress = new Uri("net.tcp://localhost:16000/UserClientService/");
+            Uri AdminSideAddress = new Uri("net.tcp://localhost:16000/AdminClientService/");
 
             // Step 2 Create a ServiceHost instance
             ServiceHost AdminSideHost = new ServiceHost(typeof(AdminClientService.AdminSideService), AdminSideAddress);
