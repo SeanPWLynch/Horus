@@ -49,6 +49,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HostedService", "HostedServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminSideHostedService", "AdminSideHostedService\AdminSideHostedService.csproj", "{6BD23C01-04E9-4F74-98EC-3DDCDB8A0983}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorusServer", "HorusServer\HorusServer.csproj", "{BC3C4DCD-AC69-4C62-BE29-E5F90BF47ECB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{6BD23C01-04E9-4F74-98EC-3DDCDB8A0983}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BD23C01-04E9-4F74-98EC-3DDCDB8A0983}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BD23C01-04E9-4F74-98EC-3DDCDB8A0983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC3C4DCD-AC69-4C62-BE29-E5F90BF47ECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC3C4DCD-AC69-4C62-BE29-E5F90BF47ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC3C4DCD-AC69-4C62-BE29-E5F90BF47ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC3C4DCD-AC69-4C62-BE29-E5F90BF47ECB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,5 +117,6 @@ Global
 		{90B93783-6E19-4354-88ED-5F2D312D9AEB} = {C1B0F818-A6FC-4EDF-A9FE-859BB1B6B594}
 		{44A769AC-13E7-4258-B96A-FD2BDBBB6CC3} = {C1B0F818-A6FC-4EDF-A9FE-859BB1B6B594}
 		{6BD23C01-04E9-4F74-98EC-3DDCDB8A0983} = {44A769AC-13E7-4258-B96A-FD2BDBBB6CC3}
+		{BC3C4DCD-AC69-4C62-BE29-E5F90BF47ECB} = {3E33A470-2E9C-4722-A0F0-405E747AF4FF}
 	EndGlobalSection
 EndGlobal
