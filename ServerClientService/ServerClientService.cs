@@ -4,6 +4,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Driver.Builders;
+
 
 namespace ServerClientService
 {
@@ -15,17 +19,29 @@ namespace ServerClientService
             return Environment.MachineName;
         }
 
-        public Computer GetComputer(Computer computer)
+        public void HandShake(string hostName)
         {
-            if (computer == null)
+            try
             {
-                throw new ArgumentNullException("composite");
+                var connectionString = "mongodb://localhost";
+                var client = new MongoClient(connectionString);
+                var server = client.GetServer();
+                var database = server.GetDatabase("horus");
+                var collection = database.GetCollection<Client>("clients");
+                var thisClient = new Client { hostName = hostName };
+                collection.Insert(thisClient);
+                Console.WriteLine(collection.Name);
             }
-            if (computer.BoolValue)
+            catch(Exception e)
             {
-                computer.StringValue += "Suffix";
+                Console.WriteLine(e.Message);
             }
-            return computer;
+        }
+
+        public class Client
+        {
+            public ObjectId Id { get; set; }
+            public string hostName { get; set; }
         }
     }
 }
