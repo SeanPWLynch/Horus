@@ -38,7 +38,6 @@ namespace ClientSideHostedService
                 Console.WriteLine("Press <ENTER> to terminate service.");
                 Console.WriteLine();
                 Console.ReadLine();
-
                 // Close the ServiceHostBase to shutdown the service.
                 ClientSideHost.Close();
             }

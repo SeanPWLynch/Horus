@@ -28,9 +28,9 @@ namespace UserClientService
             return computer;
         }
 
-        public void Ping()
+        public bool Ping()
         {
-
+            return true;
         }
     }
 }

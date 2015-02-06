@@ -14,7 +14,7 @@ namespace ApplicationServer
 {
     public class HorusServer
     {
-        List<ConnectedClient> connectedClients = new List<ConnectedClient>();
+        List<string> connectedClients = new List<string>();
         ServiceHost AdminHost;
         ServiceHost ClientHost;
 
@@ -86,22 +86,35 @@ namespace ApplicationServer
                 foreach(var clientName in res)
                 {
                     //Check if client exists in currently recognised online clients
-                    if(connectedClients.Contains(new ConnectedClient(clientName.name)))
+                    if(connectedClients.Contains(clientName.name))
                     {
-                        //UserClientService/UserClientService
-                        Console.WriteLine("Client found in connected clients, checking if still online");
+                        Console.WriteLine("Client: " + clientName.name + " Found In Connected Clients, Checking If Still Online");
                         ClientSideServiceClient checkClient = new ClientSideServiceClient();
                         checkClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + clientName.name + ":15000/UserClientService/UserClientService");
                         try
                         {
-                            checkClient.Ping();
-                            Console.WriteLine("ping worked");
+                            if (checkClient.Ping() == true)
+                            {
+                                Console.WriteLine("Client: " + clientName.name + " Still Online");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Client: " + clientName.name + "Changed To Offline");
+                                for (int i = 0; i < connectedClients.Count; i++)
+                                {
+                                    if (connectedClients[i] == clientName.name)
+                                    {
+                                        connectedClients.RemoveAt(i);
+                                    }
+                                }
+                            }
                         }
                         catch(Exception e)
                         {
+                            Console.WriteLine("Client: " + clientName.name + " Changed to offline");
                             for(int i = 0; i < connectedClients.Count; i++)
                             {
-                                if(connectedClients[i].GetClientName()==clientName.name)
+                                if(connectedClients[i] == clientName.name)
                                 {
                                     connectedClients.RemoveAt(i);
                                 }
@@ -115,12 +128,16 @@ namespace ApplicationServer
                         checkClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + clientName.name + ":15000/UserClientService/UserClientService");
                         try
                         {
-                            checkClient.Ping();
-                            Console.WriteLine("ping worked");
+                            if (checkClient.Ping() == true)
+                            {
+                                Console.WriteLine("Client: " + clientName.name + " Online");
+                                Console.WriteLine("Adding To Connected Clients");
+                                connectedClients.Add(clientName.name);
+                            }
                         }
                         catch (Exception e)
                         {
-                            Console.WriteLine(e.Message);
+                            Console.WriteLine("Client: " + clientName.name + " Offline");
                         } 
                     }
                     
@@ -128,7 +145,6 @@ namespace ApplicationServer
                 Thread.Sleep(10000);
             }
 
-            Console.WriteLine("Client Service Must Be Closed?");
         }
 
     }

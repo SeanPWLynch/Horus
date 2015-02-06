@@ -91,10 +91,10 @@ namespace HorusServer.RemoteUserService {
         System.Threading.Tasks.Task<HorusServer.RemoteUserService.Computer> GetComputerAsync(HorusServer.RemoteUserService.Computer composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/Ping", ReplyAction="http://tempuri.org/IClientSideService/PingResponse")]
-        void Ping();
+        bool Ping();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/Ping", ReplyAction="http://tempuri.org/IClientSideService/PingResponse")]
-        System.Threading.Tasks.Task PingAsync();
+        System.Threading.Tasks.Task<bool> PingAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -140,11 +140,11 @@ namespace HorusServer.RemoteUserService {
             return base.Channel.GetComputerAsync(composite);
         }
         
-        public void Ping() {
-            base.Channel.Ping();
+        public bool Ping() {
+            return base.Channel.Ping();
         }
         
-        public System.Threading.Tasks.Task PingAsync() {
+        public System.Threading.Tasks.Task<bool> PingAsync() {
             return base.Channel.PingAsync();
         }
     }

@@ -19,7 +19,7 @@ namespace UserClientService
         Computer GetComputer(Computer composite);
 
         [OperationContract]
-        void Ping();
+        bool Ping();
         
     }
 
