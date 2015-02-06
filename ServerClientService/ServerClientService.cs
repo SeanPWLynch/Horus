@@ -27,10 +27,23 @@ namespace ServerClientService
                 var client = new MongoClient(connectionString);
                 var server = client.GetServer();
                 var database = server.GetDatabase("horus");
-                var collection = database.GetCollection<Client>("clients");
-                var thisClient = new Client { hostName = hostName };
-                collection.Insert(thisClient);
-                Console.WriteLine(collection.Name);
+                var collection = database.GetCollection<Client>("Clients");
+
+                //See if client already exists
+                var query = Query.EQ("name", hostName);
+                var fields = Fields.Include("_id");
+                var res = collection.Find(query).SetFields(fields).SetLimit(1).FirstOrDefault();
+                if (res == null)
+                {
+                    //New Client
+                    var thisClient = new Client { name = hostName };
+                    collection.Insert(thisClient);
+                    Console.WriteLine("New Client: " + hostName + " Connected");
+                }
+                else
+                {
+                    Console.WriteLine(hostName + " Connected");
+                }
             }
             catch(Exception e)
             {
@@ -41,7 +54,7 @@ namespace ServerClientService
         public class Client
         {
             public ObjectId Id { get; set; }
-            public string hostName { get; set; }
+            public string name { get; set; }
         }
     }
 }
