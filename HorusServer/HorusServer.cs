@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using MongoDB.Driver;
+using MongoDB.Driver.Builders;
+using System.Threading;
 
 
 
@@ -13,15 +16,12 @@ namespace HorusServer
     public class HorusServer
     {
         List<ConnectedClient> connectedClients = new List<ConnectedClient>();
+        ServiceHost AdminHost;
+        ServiceHost ClientHost;
+
         public HorusServer()
         {
             
-        }
-
-        public void ClientHandShake(string clientName)
-        {
-            ConnectedClient newClient = new ConnectedClient(clientName);
-            connectedClients.Add(newClient);
         }
 
         public void StartAdmin()
@@ -34,7 +34,7 @@ namespace HorusServer
                 ServiceMetadataBehavior AdminMetaBehaviour = new ServiceMetadataBehavior();
                 AdminHost.Description.Behaviors.Add(AdminMetaBehaviour);
                 AdminHost.Open();
-
+                this.AdminHost = AdminHost;
                 Console.WriteLine("Admin: " + AdminHost.BaseAddresses[0]);
             }
             catch (Exception ce)
@@ -57,7 +57,7 @@ namespace HorusServer
                 ClientHost.Description.Behaviors.Add(ClientMetaBehaviour);
                 ClientHost.Open();
                 Console.WriteLine("Client: " + ClientHost.BaseAddresses[0]);
-
+                this.ClientHost = ClientHost;
 
 
             }
@@ -67,15 +67,31 @@ namespace HorusServer
                 ClientHost.Abort();
             }
 
-            
-
-           
         }
 
-        private void ClientConnecting(object sender, EventArgs e)
+        public void CheckForClients()
         {
-            Console.WriteLine("something");
-            Console.WriteLine(e.ToString());
+            //Delay method start to ensure all services are ready
+            Thread.Sleep(10000);
+            //While The Services Are Running
+            while(this.ClientHost.State.ToString()=="Opened")
+            {
+                //Check Mongo For Client Names
+                var connectionString = "mongodb://localhost";
+                var client = new MongoClient(connectionString);
+                var server = client.GetServer();
+                var database = server.GetDatabase("horus");
+                var collection = database.GetCollection<ServerClientService.ServerClientService.Client>("Clients");
+                var res = collection.FindAll();
+                foreach(var clientName in res)
+                {
+                    Console.WriteLine(clientName.name);
+                }
+                Thread.Sleep(10000);
+            }
+
+            Console.WriteLine("Client Service Must Be Closed?");
         }
+
     }
 }
