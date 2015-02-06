@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HorusServerTesting.ClientServerSide;
+using System.Threading;
 
 namespace HorusServerTesting
 {
@@ -11,6 +12,11 @@ namespace HorusServerTesting
     {
         static void Main(string[] args)
         {
+            s_ClientHost ClientHost = new s_ClientHost();
+
+            Thread t_ClientHost = new Thread(ClientHost.StartServce);
+            t_ClientHost.Start();
+
             try
             {
                 ServerClientServiceClient client = new ServerClientServiceClient();
