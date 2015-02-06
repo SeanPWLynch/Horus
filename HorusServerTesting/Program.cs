@@ -15,7 +15,7 @@ namespace HorusServerTesting
             {
                 ServerClientServiceClient client = new ServerClientServiceClient();
 
-                //client.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://localhost:13000/ServerClientService/ServerClientService");
+                client.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://ie-ski-l225:13000/ServerClientService/ServerClientService");
 
                 client.Open();
 
