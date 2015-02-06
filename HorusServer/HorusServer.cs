@@ -97,17 +97,6 @@ namespace ApplicationServer
                             {
                                 Console.WriteLine("Client: " + clientName.name + " Still Online");
                             }
-                            else
-                            {
-                                Console.WriteLine("Client: " + clientName.name + "Changed To Offline");
-                                for (int i = 0; i < connectedClients.Count; i++)
-                                {
-                                    if (connectedClients[i] == clientName.name)
-                                    {
-                                        connectedClients.RemoveAt(i);
-                                    }
-                                }
-                            }
                         }
                         catch(Exception e)
                         {
@@ -117,6 +106,7 @@ namespace ApplicationServer
                                 if(connectedClients[i] == clientName.name)
                                 {
                                     connectedClients.RemoveAt(i);
+                                    Console.WriteLine("Client: " + clientName.name + " Removed From Connected Clients");
                                 }
                             }
                         }
