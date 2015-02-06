@@ -85,13 +85,17 @@ namespace ApplicationServer
                 var res = collection.FindAll();
                 foreach(var clientName in res)
                 {
+                    //Check if client exists in currently recognised online clients
                     if(connectedClients.Contains(new ConnectedClient(clientName.name)))
                     {
+                        //UserClientService/UserClientService
+                        Console.WriteLine("Client found in connected clients, checking if still online");
                         ClientSideServiceClient checkClient = new ClientSideServiceClient();
-                        checkClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://"+clientName.name+":15000/ServerClientService/ServerClientService");
+                        checkClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + clientName.name + ":15000/UserClientService/UserClientService");
                         try
                         {
                             checkClient.Ping();
+                            Console.WriteLine("ping worked");
                         }
                         catch(Exception e)
                         {
@@ -107,17 +111,20 @@ namespace ApplicationServer
                     else
                     {
                         //Check if client is online
-                        //ToDo(write method to check this)
-                        connectedClients.Add(new ConnectedClient(clientName.name));
-                        Console.WriteLine("Client: " + clientName.name + " Added To Connected Client List");
+                        ClientSideServiceClient checkClient = new ClientSideServiceClient();
+                        checkClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + clientName.name + ":15000/UserClientService/UserClientService");
+                        try
+                        {
+                            checkClient.Ping();
+                            Console.WriteLine("ping worked");
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                        } 
                     }
                     
                 }
-
-                
-
-
-
                 Thread.Sleep(10000);
             }
 
