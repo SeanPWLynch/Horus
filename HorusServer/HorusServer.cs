@@ -8,10 +8,9 @@ using System.ServiceModel.Description;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using System.Threading;
+using HorusServer.RemoteUserService;
 
-
-
-namespace HorusServer
+namespace ApplicationServer
 {
     public class HorusServer
     {
@@ -73,7 +72,8 @@ namespace HorusServer
         {
             //Delay method start to ensure all services are ready
             Thread.Sleep(10000);
-            //While The Services Are Running
+
+            //While The Client Is Running
             while(this.ClientHost.State.ToString()=="Opened")
             {
                 //Check Mongo For Client Names
@@ -85,8 +85,39 @@ namespace HorusServer
                 var res = collection.FindAll();
                 foreach(var clientName in res)
                 {
-                    Console.WriteLine(clientName.name);
+                    if(connectedClients.Contains(new ConnectedClient(clientName.name)))
+                    {
+                        ClientSideServiceClient checkClient = new ClientSideServiceClient();
+                        checkClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://"+clientName.name+":15000/ServerClientService/ServerClientService");
+                        try
+                        {
+                            checkClient.Ping();
+                        }
+                        catch(Exception e)
+                        {
+                            for(int i = 0; i < connectedClients.Count; i++)
+                            {
+                                if(connectedClients[i].GetClientName()==clientName.name)
+                                {
+                                    connectedClients.RemoveAt(i);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //Check if client is online
+                        //ToDo(write method to check this)
+                        connectedClients.Add(new ConnectedClient(clientName.name));
+                        Console.WriteLine("Client: " + clientName.name + " Added To Connected Client List");
+                    }
+                    
                 }
+
+                
+
+
+
                 Thread.Sleep(10000);
             }
 

@@ -18,6 +18,8 @@ namespace UserClientService
         [OperationContract]
         Computer GetComputer(Computer composite);
 
+        [OperationContract]
+        void Ping();
         
     }
 

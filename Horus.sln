@@ -29,7 +29,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HostedService", "HostedServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminSideHostedService", "AdminSideHostedService\AdminSideHostedService.csproj", "{6BD23C01-04E9-4F74-98EC-3DDCDB8A0983}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorusServer", "HorusServer\HorusServer.csproj", "{BC3C4DCD-AC69-4C62-BE29-E5F90BF47ECB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationServer", "HorusServer\ApplicationServer.csproj", "{BC3C4DCD-AC69-4C62-BE29-E5F90BF47ECB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{737B4CC0-3554-4E4F-8761-E37E6A0C8590} = {737B4CC0-3554-4E4F-8761-E37E6A0C8590}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServerTesting", "ServerTesting", "{D3B4B2AE-ED3C-42AD-8054-92BDDB79EDC8}"
 EndProject

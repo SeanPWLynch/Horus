@@ -15,8 +15,6 @@ namespace ClientSideHostedService
         {
 
             // Step 1 Create a URI to serve as the base address.
-            //Need to update to Uri Array/List For Multiple Clients
-
             //Port 15000
 
             Uri ClientSideAddress = new Uri("net.tcp://localhost:15000/UserClientService/");

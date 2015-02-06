@@ -27,5 +27,10 @@ namespace UserClientService
             }
             return computer;
         }
+
+        public void Ping()
+        {
+
+        }
     }
 }

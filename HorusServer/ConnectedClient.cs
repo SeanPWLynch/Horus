@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HorusServer
+namespace ApplicationServer
 {
     class ConnectedClient
     {
@@ -15,7 +15,7 @@ namespace HorusServer
             this.Client = Client;
         }
 
-        public string GetClientAddress()
+        public string GetClientName()
         {
             return this.Client;
         }
