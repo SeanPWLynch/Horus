@@ -32,10 +32,10 @@ namespace ApplicationServer
         public void StartAdmin()
         {
             Uri AdminAddress = new Uri("net.tcp://localhost:12000/ServerAdminService/");
-            ServiceHost AdminHost = new ServiceHost(typeof(ApplicationServer.ServerAdminService), AdminAddress);
+            ServiceHost AdminHost = new ServiceHost(typeof(ServerAdminService.ServerAdminService), AdminAddress);
             try
             {
-                AdminHost.AddServiceEndpoint(typeof(ApplicationServer.IServerAdminService), new NetTcpBinding(SecurityMode.None), "ServerAdminService");
+                AdminHost.AddServiceEndpoint(typeof(ServerAdminService.IServerAdminService), new NetTcpBinding(SecurityMode.None), "ServerAdminService");
                 ServiceMetadataBehavior AdminMetaBehaviour = new ServiceMetadataBehavior();
                 AdminHost.Description.Behaviors.Add(AdminMetaBehaviour);
                 AdminHost.Open();
