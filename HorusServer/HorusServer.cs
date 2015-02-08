@@ -14,7 +14,7 @@ namespace ApplicationServer
 {
     public class HorusServer
     {
-        List<string> connectedClients = new List<string>();
+        static List<string> connectedClients = new List<string>();
         ServiceHost AdminHost;
         ServiceHost ClientHost;
 
@@ -23,13 +23,18 @@ namespace ApplicationServer
             
         }
 
+        public List<string> GetConnectedClients()
+        {
+            return connectedClients;
+        }
+
         public void StartAdmin()
         {
             Uri AdminAddress = new Uri("net.tcp://localhost:12000/ServerAdminService/");
-            ServiceHost AdminHost = new ServiceHost(typeof(ServerAdminService.ServerAdminService), AdminAddress);
+            ServiceHost AdminHost = new ServiceHost(typeof(ApplicationServer.ServerAdminService), AdminAddress);
             try
             {
-                AdminHost.AddServiceEndpoint(typeof(ServerAdminService.IServerAdminService), new NetTcpBinding(SecurityMode.None), "ServerAdminService");
+                AdminHost.AddServiceEndpoint(typeof(ApplicationServer.IServerAdminService), new NetTcpBinding(SecurityMode.None), "ServerAdminService");
                 ServiceMetadataBehavior AdminMetaBehaviour = new ServiceMetadataBehavior();
                 AdminHost.Description.Behaviors.Add(AdminMetaBehaviour);
                 AdminHost.Open();
@@ -67,6 +72,7 @@ namespace ApplicationServer
             }
 
         }
+
 
         public void CheckForClients()
         {

@@ -56,7 +56,9 @@
   <ItemGroup>
     <Compile Include="ConnectedClient.cs" />
     <Compile Include="HorusServer.cs" />
+    <Compile Include="IServerAdminService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerAdminService.cs" />
     <Compile Include="Service References\RemoteUserService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
