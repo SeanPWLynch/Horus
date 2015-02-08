@@ -18,6 +18,7 @@ namespace ApplicationServer
         ServiceHost AdminHost;
         ServiceHost ClientHost;
 
+
         public HorusServer()
         {
             
