@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5822c62d-a1a5-42c3-b9f5-1a717e077008" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="4a32b7f6-caf8-4ea1-990e-8cf2177aefb2" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d93101ba-0025-4bec-80d8-c90e5b98adfa" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="d0bf3ee4-ab57-42c7-b9e8-875cd8816f1c" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="9b3bff59-7b3c-47e3-9449-bd9a9a2d981b" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using HorusShared;
 
 namespace ServerAdminService
 {
@@ -15,17 +16,10 @@ namespace ServerAdminService
             return Environment.MachineName;
         }
 
-        public Computer GetComputer(Computer computer)
+        public List<string> GetClients()
         {
-            if (computer == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (computer.BoolValue)
-            {
-                computer.StringValue += "Suffix";
-            }
-            return computer;
+            return HorusShared.HorusShared.GetClients();
         }
+
     }
 }

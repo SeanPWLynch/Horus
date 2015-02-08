@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HorusServerTesting.ClientServerSide;
+using HorusServerTesting.AdminServerSide;
 using System.Threading;
 
 namespace HorusServerTesting
@@ -20,14 +21,22 @@ namespace HorusServerTesting
             try
             {
                 ServerClientServiceClient client = new ServerClientServiceClient();
+                ServerAdminServiceClient a_client = new ServerAdminServiceClient();
 
-                client.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://ie-ski-l225:13000/ServerClientService/ServerClientService");
+                client.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://localhost:13000/ServerClientService/ServerClientService");
+                a_client.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://localhost:12000/ServerAdminService/ServerAdminService");
+                
 
                 client.Open();
-
                 client.HandShake(Environment.MachineName);
 
+                a_client.Open();
+
+                Console.WriteLine(a_client.GetClients().Count());
+                
+
                 Console.ReadLine();
+
             }
             catch(Exception e)
             {
