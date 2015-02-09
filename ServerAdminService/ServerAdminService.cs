@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using HorusShared;
+//using HorusShared;
 
 namespace ServerAdminService
 {
@@ -13,12 +13,14 @@ namespace ServerAdminService
     {
         public List<string> GetClients()
         {
-            return HorusShared.HorusShared.GetClients();
+            throw new NotImplementedException();
+            //return HorusShared.HorusShared.GetClients();
         }
 
         public string GetHostName(string targetMachine)
         {
-            return HorusShared.HorusShared.GetHostName(targetMachine);
+            throw new NotImplementedException();
+            //return HorusShared.HorusShared.GetHostName(targetMachine);
         }
         
     }
