@@ -20,6 +20,10 @@ namespace HorusShared
             return hs.GetHostName(targetHost);
         }
 
+        public static ComputerObjects.Computer GetComputer(string targetHost)
+        {
 
+            return hs.GetComputer(targetHost);
+        }
     }
 }

@@ -27,6 +27,9 @@ namespace HorusAdmin
 
                 Console.WriteLine(AdminClient.GetHostName(onlineClients[0]));
 
+                Console.WriteLine(AdminClient.GetComputer(onlineClients[0]).CPUName);
+                
+
                 Console.ReadLine();
             }
             catch(Exception e)

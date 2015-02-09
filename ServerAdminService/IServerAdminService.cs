@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using HorusShared;
 
 namespace ServerAdminService
 {
@@ -16,6 +17,10 @@ namespace ServerAdminService
 
         [OperationContract]
         string GetHostName(string targetMachine);
+
+        [OperationContract] 
+        HorusShared.ComputerObjects.Computer GetComputer(string targetMachine);
+        
         
     }
 }

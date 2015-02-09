@@ -23,6 +23,24 @@ namespace ApplicationServer
             
         }
 
+        public HorusShared.ComputerObjects.Computer GetComputer(string targetHost)
+        {
+            try
+            {
+                ClientSideServiceClient targetClient = new ClientSideServiceClient();
+                targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
+                return targetClient.GetComputer();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return new HorusShared.ComputerObjects.Computer();
+            }
+
+        }
+
+        
+
         public List<string> GetConnectedClients()
         {
             return connectedClients;

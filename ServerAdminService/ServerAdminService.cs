@@ -22,6 +22,13 @@ namespace ServerAdminService
             //throw new NotImplementedException();
             return HorusShared.HorusShared.GetHostName(targetMachine);
         }
+
+        public HorusShared.ComputerObjects.Computer GetComputer(string targetMachine)
+        {
+            return HorusShared.HorusShared.GetComputer(targetMachine);
+        }
+
+
         
     }
 }

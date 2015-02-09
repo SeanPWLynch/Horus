@@ -19,6 +19,12 @@ namespace ServerClientService
             return Environment.MachineName;
         }
 
+        public HorusShared.ComputerObjects.Computer GetComputer()
+        {
+            HorusShared.ComputerObjects.Computer ThisComputer = new HorusShared.ComputerObjects.Computer();
+            return ThisComputer;
+        }
+
         public void HandShake(string hostName)
         {
             try

@@ -56,6 +56,12 @@
     <None Include="Service References\Horus\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\Horus\HorusAdmin.Horus.Computer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Horus\HorusShared.ComputerObjects.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Horus\service.wsdl" />
     <None Include="Service References\Horus\service.xsd">
       <SubType>Designer</SubType>

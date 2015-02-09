@@ -15,17 +15,10 @@ namespace UserClientService
             return Environment.MachineName;
         }
 
-        public Computer GetComputer(Computer computer)
+        public HorusShared.ComputerObjects.Computer GetComputer()
         {
-            if (computer == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (computer.BoolValue)
-            {
-                computer.StringValue += "Suffix";
-            }
-            return computer;
+            HorusShared.ComputerObjects.Computer ThisComputer = new HorusShared.ComputerObjects.Computer();
+            return ThisComputer;
         }
 
         public bool Ping()

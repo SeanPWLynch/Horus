@@ -25,7 +25,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="a1aaa591-e16b-4a21-bf73-170c8e9fb4f2" SourceId="1" SourceUrl="net.tcp://localhost:15000/UserClientService/UserClientService/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6349dea4-705d-4a66-9f67-a213ca97950b" SourceId="1" SourceUrl="net.tcp://localhost:15000/UserClientService/UserClientService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="12c62457-dbe8-4a5a-8330-54f202f5cf33" SourceId="1" SourceUrl="net.tcp://localhost:15000/UserClientService/UserClientService/mex" />
-    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="c74c1271-9e38-4e03-9fa9-138f7c6de3d4" SourceId="1" SourceUrl="net.tcp://localhost:15000/UserClientService/UserClientService/mex" />
+    <MetadataFile FileName="HorusShared.ComputerObjects.xsd" MetadataType="Schema" ID="a50b6f06-d7b4-476d-88a6-e6d846c80474" SourceId="1" SourceUrl="net.tcp://localhost:15000/UserClientService/UserClientService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

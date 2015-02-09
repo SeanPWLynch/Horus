@@ -35,7 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HorusShared">
+    <Reference Include="HorusShared, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\HorusShared\bin\Debug\HorusShared.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />

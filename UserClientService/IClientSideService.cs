@@ -16,7 +16,7 @@ namespace UserClientService
         string GetHostName();
 
         [OperationContract]
-        Computer GetComputer(Computer composite);
+        HorusShared.ComputerObjects.Computer GetComputer();
 
         [OperationContract]
         bool Ping();

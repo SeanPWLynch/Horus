@@ -16,6 +16,8 @@ namespace ServerClientService
 
         [OperationContract]
         void HandShake(string hostName);
-        
+
+        [OperationContract]
+        HorusShared.ComputerObjects.Computer GetComputer();
     }
 }
