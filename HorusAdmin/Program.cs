@@ -15,20 +15,54 @@ namespace HorusAdmin
             {
                 Console.WriteLine("Starting Testing");
 
-                Console.WriteLine("Available Clients");
-
                 ServerAdminServiceClient AdminClient = new ServerAdminServiceClient();
+                //net.tcp://localhost:12000/ServerAdminService/ServerAdminService/
+                AdminClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://dev-server2012-dc:12000/ServerAdminService/ServerAdminService/");
 
                 AdminClient.Open();
 
+                Console.WriteLine("Available Clients");
+
                 string[] onlineClients = AdminClient.GetClients();
 
-                Console.WriteLine(onlineClients[0]);
+                for (int i = 0; i < onlineClients.Count(); i++ )
+                {
+                    Console.WriteLine(i+1 + ": "  + onlineClients[i]);
+                }
 
-                Console.WriteLine(AdminClient.GetHostName(onlineClients[0]));
+                Console.WriteLine("Please Enter The Number Relateing To The Client You Want To Send Command Too");
 
-                Console.WriteLine(AdminClient.GetComputer(onlineClients[0]).CPUName);
+                int choice = int.Parse(Console.ReadLine()) - 1;
+                bool intActive = true;
                 
+                while(intActive==true)
+                {
+                    Console.WriteLine("Choose An Option");
+                    Console.WriteLine("1: Get Logged In User");
+                    Console.WriteLine("2: Get Number Of CPU Cores");
+                    Console.WriteLine("3: Get System Uptime (In Minutes)");
+                    Console.WriteLine("4: Exit");
+                    int option = int.Parse(Console.ReadLine());    
+
+                    if(option==1)
+                    {
+                        Console.WriteLine(AdminClient.GetComputer(onlineClients[choice]).UserName);
+                    }
+                    else if(option==2)
+                    {
+                        Console.WriteLine(AdminClient.GetComputer(onlineClients[choice]).CPUNumLogicalCores);
+                    }
+                    else if(option==3)
+                    {
+                        Console.WriteLine(AdminClient.GetComputer(onlineClients[choice]).SystemUpTime.TotalMinutes);
+                    }  
+                    else if(option==4)
+                    {
+                        intActive = false;
+                    }
+                }
+
+                Console.WriteLine("Testing Over");
 
                 Console.ReadLine();
             }
