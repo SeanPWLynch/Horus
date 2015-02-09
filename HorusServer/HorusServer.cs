@@ -18,7 +18,6 @@ namespace ApplicationServer
         ServiceHost AdminHost;
         ServiceHost ClientHost;
 
-
         public HorusServer()
         {
             
@@ -74,6 +73,20 @@ namespace ApplicationServer
 
         }
 
+        public string GetHostName(string hostName)
+        {
+            try
+            {
+                ClientSideServiceClient targetClient = new ClientSideServiceClient();
+                targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + hostName + ":15000/UserClientService/UserClientService");
+                return targetClient.GetHostName();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return e.Message;
+            }
+        }
 
         public void CheckForClients()
         {

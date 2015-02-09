@@ -21,18 +21,12 @@ namespace HorusServerTesting
             try
             {
                 ServerClientServiceClient client = new ServerClientServiceClient();
-                ServerAdminServiceClient a_client = new ServerAdminServiceClient();
 
                 client.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://localhost:13000/ServerClientService/ServerClientService");
-                a_client.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://localhost:12000/ServerAdminService/ServerAdminService");
-                
 
                 client.Open();
                 client.HandShake(Environment.MachineName);
 
-                a_client.Open();
-
-                Console.WriteLine(a_client.GetClients().Count());
                 
 
                 Console.ReadLine();

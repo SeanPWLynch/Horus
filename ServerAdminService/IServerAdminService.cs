@@ -12,10 +12,10 @@ namespace ServerAdminService
     public interface IServerAdminService
     {
         [OperationContract]
-        string GetHostName();
+        List<string> GetClients();
 
         [OperationContract]
-        List<string> GetClients();
+        string GetHostName(string targetMachine);
         
     }
 }
