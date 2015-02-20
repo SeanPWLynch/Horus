@@ -36,10 +36,17 @@ namespace ApplicationServer
                 Console.WriteLine(e.Message);
                 return new HorusShared.ComputerObjects.Computer();
             }
-
         }
 
-        
+        public void EndRemoteProcess()
+        {
+            //TODO: Implement
+        }
+
+        public void StartRemoteProcess()
+        {
+            //TODO: Implement
+        }
 
         public List<string> GetConnectedClients()
         {

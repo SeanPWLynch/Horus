@@ -17,12 +17,14 @@ namespace HorusShared.ComputerObjects
         public int CPUNumLogicalCores;
         public string CPUID;
         public TimeSpan SystemUpTime;
+        Processes RunningProcesses;
 
         public Computer()
         {
             GetHostName();
             GetuserName();
             GetCPUInformation();
+            RunningProcesses = new Processes();
         }
 
         public void GetHostName()
