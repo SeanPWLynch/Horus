@@ -16,6 +16,9 @@ namespace ServerAdminService
         List<string> GetClients();
 
         [OperationContract]
+        void StartRemoteProcess(string ProcessName, string targetMachine);
+
+        [OperationContract]
         string GetHostName(string targetMachine);
 
         [OperationContract] 

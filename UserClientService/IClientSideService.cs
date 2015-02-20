@@ -20,6 +20,9 @@ namespace UserClientService
 
         [OperationContract]
         bool Ping();
+
+        [OperationContract]
+        void StartProcess(string ProcessName);
         
     }
 

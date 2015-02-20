@@ -9,9 +9,14 @@
       <xs:element minOccurs="0" name="CPUNumLogicalCores" type="xs:int" />
       <xs:element minOccurs="0" name="CPUNumPhysicalCores" type="xs:int" />
       <xs:element minOccurs="0" name="HostName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RunningProcesses" nillable="true" type="tns:Processes" />
       <xs:element minOccurs="0" name="SystemUpTime" type="ser:duration" />
       <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Computer" nillable="true" type="tns:Computer" />
+  <xs:complexType name="Processes">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="Processes" nillable="true" type="tns:Processes" />
 </xs:schema>

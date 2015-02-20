@@ -41,7 +41,8 @@ namespace HorusAdmin
                     Console.WriteLine("1: Get Logged In User");
                     Console.WriteLine("2: Get Number Of CPU Cores");
                     Console.WriteLine("3: Get System Uptime (In Minutes)");
-                    Console.WriteLine("4: Exit");
+                    Console.WriteLine("4: Start Remote Process");
+                    Console.WriteLine("5: Exit");
                     int option = int.Parse(Console.ReadLine());    
 
                     if(option==1)
@@ -57,6 +58,13 @@ namespace HorusAdmin
                         Console.WriteLine(AdminClient.GetComputer(onlineClients[choice]).SystemUpTime.TotalMinutes);
                     }  
                     else if(option==4)
+                    {
+                        Console.WriteLine("Please enter a process name to start");
+                        string procName = Console.ReadLine();
+                        AdminClient.StartRemoteProcess(procName, AdminClient.GetComputer(onlineClients[choice]).HostName);
+                        
+                    }
+                    else if(option==5)
                     {
                         intActive = false;
                     }

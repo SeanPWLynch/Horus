@@ -25,12 +25,12 @@ namespace HorusShared.ComputerObjects
             RunningProcesses = System.Diagnostics.Process.GetProcesses();
         }
 
-        private void StartProcess(string ProcessName)
+        public void StartProcess(string ProcessName)
         {
             System.Diagnostics.Process.Start(ProcessName);
         }
 
-        private void EndProcess(string ProcessName)
+        public void EndProcess(string ProcessName)
         {
             Process[] ToKill = Process.GetProcessesByName(ProcessName);
                 foreach (Process proc in ToKill)

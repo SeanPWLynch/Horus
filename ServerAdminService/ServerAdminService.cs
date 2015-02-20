@@ -17,6 +17,11 @@ namespace ServerAdminService
             return HorusShared.HorusShared.GetClients();
         }
 
+        public void StartRemoteProcess(string ProcessName, string TargetMachine)
+        {
+            HorusShared.HorusShared.StartRemoteProcess(ProcessName, TargetMachine);
+        }
+
         public string GetHostName(string targetMachine)
         {
             //throw new NotImplementedException();

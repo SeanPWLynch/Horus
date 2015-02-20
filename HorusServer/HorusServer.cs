@@ -43,9 +43,18 @@ namespace ApplicationServer
             //TODO: Implement
         }
 
-        public void StartRemoteProcess()
+        public void StartRemoteProcess(string targetHost, string ProcessName)
         {
-            //TODO: Implement
+            try
+            {
+                ClientSideServiceClient targetClient = new ClientSideServiceClient();
+                targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
+                targetClient.StartProcess(ProcessName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public List<string> GetConnectedClients()

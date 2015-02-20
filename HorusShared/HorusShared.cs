@@ -25,5 +25,11 @@ namespace HorusShared
 
             return hs.GetComputer(targetHost);
         }
+
+        public static void StartRemoteProcess(string ProcessName, string TargetHost)
+        {
+            hs.StartRemoteProcess(TargetHost, ProcessName);
+        }
+        
     }
 }
