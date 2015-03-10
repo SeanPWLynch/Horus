@@ -231,6 +231,12 @@ namespace HorusAdmin.Horus {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerAdminService/StartRemoteProcess", ReplyAction="http://tempuri.org/IServerAdminService/StartRemoteProcessResponse")]
         System.Threading.Tasks.Task StartRemoteProcessAsync(string ProcessName, string targetMachine);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerAdminService/EndRemoteProcess", ReplyAction="http://tempuri.org/IServerAdminService/EndRemoteProcessResponse")]
+        void EndRemoteProcess(string ProcessName, string targetMachine);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerAdminService/EndRemoteProcess", ReplyAction="http://tempuri.org/IServerAdminService/EndRemoteProcessResponse")]
+        System.Threading.Tasks.Task EndRemoteProcessAsync(string ProcessName, string targetMachine);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerAdminService/GetHostName", ReplyAction="http://tempuri.org/IServerAdminService/GetHostNameResponse")]
         string GetHostName(string targetMachine);
         
@@ -285,6 +291,14 @@ namespace HorusAdmin.Horus {
         
         public System.Threading.Tasks.Task StartRemoteProcessAsync(string ProcessName, string targetMachine) {
             return base.Channel.StartRemoteProcessAsync(ProcessName, targetMachine);
+        }
+        
+        public void EndRemoteProcess(string ProcessName, string targetMachine) {
+            base.Channel.EndRemoteProcess(ProcessName, targetMachine);
+        }
+        
+        public System.Threading.Tasks.Task EndRemoteProcessAsync(string ProcessName, string targetMachine) {
+            return base.Channel.EndRemoteProcessAsync(ProcessName, targetMachine);
         }
         
         public string GetHostName(string targetMachine) {

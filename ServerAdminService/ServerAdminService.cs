@@ -13,7 +13,6 @@ namespace ServerAdminService
     {
         public List<string> GetClients()
         {
-            //throw new NotImplementedException();
             return HorusShared.HorusShared.GetClients();
         }
 
@@ -22,9 +21,13 @@ namespace ServerAdminService
             HorusShared.HorusShared.StartRemoteProcess(ProcessName, TargetMachine);
         }
 
+        public void EndRemoteProcess(string ProcessName, string TargetMachine)
+        {
+            HorusShared.HorusShared.EndRemoteProcess(ProcessName, TargetMachine);
+        }
+
         public string GetHostName(string targetMachine)
         {
-            //throw new NotImplementedException();
             return HorusShared.HorusShared.GetHostName(targetMachine);
         }
 

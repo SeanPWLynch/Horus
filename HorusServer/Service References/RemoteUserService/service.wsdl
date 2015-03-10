@@ -64,6 +64,12 @@
   <wsdl:message name="IClientSideService_StartProcess_OutputMessage">
     <wsdl:part name="parameters" element="tns:StartProcessResponse" />
   </wsdl:message>
+  <wsdl:message name="IClientSideService_EndProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndProcess" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_EndProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndProcessResponse" />
+  </wsdl:message>
   <wsdl:portType name="IClientSideService">
     <wsdl:operation name="GetHostName">
       <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/GetHostName" message="tns:IClientSideService_GetHostName_InputMessage" />
@@ -80,6 +86,10 @@
     <wsdl:operation name="StartProcess">
       <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/StartProcess" message="tns:IClientSideService_StartProcess_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClientSideService/StartProcessResponse" message="tns:IClientSideService_StartProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/EndProcess" message="tns:IClientSideService_EndProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientSideService/EndProcessResponse" message="tns:IClientSideService_EndProcess_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IClientSideService" type="tns:IClientSideService">
@@ -115,6 +125,15 @@
     </wsdl:operation>
     <wsdl:operation name="StartProcess">
       <soap12:operation soapAction="http://tempuri.org/IClientSideService/StartProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndProcess">
+      <soap12:operation soapAction="http://tempuri.org/IClientSideService/EndProcess" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

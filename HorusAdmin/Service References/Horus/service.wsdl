@@ -53,6 +53,12 @@
   <wsdl:message name="IServerAdminService_StartRemoteProcess_OutputMessage">
     <wsdl:part name="parameters" element="tns:StartRemoteProcessResponse" />
   </wsdl:message>
+  <wsdl:message name="IServerAdminService_EndRemoteProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndRemoteProcess" />
+  </wsdl:message>
+  <wsdl:message name="IServerAdminService_EndRemoteProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndRemoteProcessResponse" />
+  </wsdl:message>
   <wsdl:message name="IServerAdminService_GetHostName_InputMessage">
     <wsdl:part name="parameters" element="tns:GetHostName" />
   </wsdl:message>
@@ -73,6 +79,10 @@
     <wsdl:operation name="StartRemoteProcess">
       <wsdl:input wsaw:Action="http://tempuri.org/IServerAdminService/StartRemoteProcess" message="tns:IServerAdminService_StartRemoteProcess_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServerAdminService/StartRemoteProcessResponse" message="tns:IServerAdminService_StartRemoteProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndRemoteProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServerAdminService/EndRemoteProcess" message="tns:IServerAdminService_EndRemoteProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServerAdminService/EndRemoteProcessResponse" message="tns:IServerAdminService_EndRemoteProcess_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetHostName">
       <wsdl:input wsaw:Action="http://tempuri.org/IServerAdminService/GetHostName" message="tns:IServerAdminService_GetHostName_InputMessage" />
@@ -98,6 +108,15 @@
     </wsdl:operation>
     <wsdl:operation name="StartRemoteProcess">
       <soap12:operation soapAction="http://tempuri.org/IServerAdminService/StartRemoteProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndRemoteProcess">
+      <soap12:operation soapAction="http://tempuri.org/IServerAdminService/EndRemoteProcess" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

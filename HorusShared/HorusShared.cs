@@ -30,6 +30,11 @@ namespace HorusShared
         {
             hs.StartRemoteProcess(TargetHost, ProcessName);
         }
+
+        public static void EndRemoteProcess(string ProcessName, string TargetHost)
+        {
+            hs.EndRemoteProcess(TargetHost, ProcessName);
+        }
         
     }
 }

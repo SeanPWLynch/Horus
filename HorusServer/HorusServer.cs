@@ -57,6 +57,20 @@ namespace ApplicationServer
             }
         }
 
+        public void EndRemoteProcess(string targetHost, string ProcessName)
+        {
+            try
+            {
+                ClientSideServiceClient targetClient = new ClientSideServiceClient();
+                targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
+                targetClient.EndProcess(ProcessName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
         public List<string> GetConnectedClients()
         {
             return connectedClients;

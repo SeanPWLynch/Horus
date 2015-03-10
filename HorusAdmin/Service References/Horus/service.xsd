@@ -27,6 +27,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="EndRemoteProcess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="targetMachine" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndRemoteProcessResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetHostName">
     <xs:complexType>
       <xs:sequence>

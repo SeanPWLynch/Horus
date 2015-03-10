@@ -38,6 +38,12 @@ namespace HorusServer.RemoteUserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/StartProcess", ReplyAction="http://tempuri.org/IClientSideService/StartProcessResponse")]
         System.Threading.Tasks.Task StartProcessAsync(string ProcessName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/EndProcess", ReplyAction="http://tempuri.org/IClientSideService/EndProcessResponse")]
+        void EndProcess(string ProcessName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/EndProcess", ReplyAction="http://tempuri.org/IClientSideService/EndProcessResponse")]
+        System.Threading.Tasks.Task EndProcessAsync(string ProcessName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,6 +103,14 @@ namespace HorusServer.RemoteUserService {
         
         public System.Threading.Tasks.Task StartProcessAsync(string ProcessName) {
             return base.Channel.StartProcessAsync(ProcessName);
+        }
+        
+        public void EndProcess(string ProcessName) {
+            base.Channel.EndProcess(ProcessName);
+        }
+        
+        public System.Threading.Tasks.Task EndProcessAsync(string ProcessName) {
+            return base.Channel.EndProcessAsync(ProcessName);
         }
     }
 }
