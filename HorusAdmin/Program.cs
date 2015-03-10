@@ -17,7 +17,7 @@ namespace HorusAdmin
 
                 ServerAdminServiceClient AdminClient = new ServerAdminServiceClient();
                 //net.tcp://localhost:12000/ServerAdminService/ServerAdminService/
-                AdminClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://ie-ski-l225:12000/ServerAdminService/ServerAdminService/");
+                AdminClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://"+Properties.Settings.Default.HorusServerAddress+":12000/ServerAdminService/ServerAdminService/");
 
                 AdminClient.Open();
 
