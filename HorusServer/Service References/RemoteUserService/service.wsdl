@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClientSideService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClientSideService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsp:Policy wsu:Id="NetTcpBinding_IClientSideService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -70,6 +70,18 @@
   <wsdl:message name="IClientSideService_EndProcess_OutputMessage">
     <wsdl:part name="parameters" element="tns:EndProcessResponse" />
   </wsdl:message>
+  <wsdl:message name="IClientSideService_StartService_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartService" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_StartService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_EndService_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndService" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_EndService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndServiceResponse" />
+  </wsdl:message>
   <wsdl:portType name="IClientSideService">
     <wsdl:operation name="GetHostName">
       <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/GetHostName" message="tns:IClientSideService_GetHostName_InputMessage" />
@@ -90,6 +102,14 @@
     <wsdl:operation name="EndProcess">
       <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/EndProcess" message="tns:IClientSideService_EndProcess_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClientSideService/EndProcessResponse" message="tns:IClientSideService_EndProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/StartService" message="tns:IClientSideService_StartService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientSideService/StartServiceResponse" message="tns:IClientSideService_StartService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/EndService" message="tns:IClientSideService_EndService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientSideService/EndServiceResponse" message="tns:IClientSideService_EndService_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IClientSideService" type="tns:IClientSideService">
@@ -134,6 +154,24 @@
     </wsdl:operation>
     <wsdl:operation name="EndProcess">
       <soap12:operation soapAction="http://tempuri.org/IClientSideService/EndProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <soap12:operation soapAction="http://tempuri.org/IClientSideService/StartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndService">
+      <soap12:operation soapAction="http://tempuri.org/IClientSideService/EndService" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -26,6 +26,12 @@ namespace UserClientService
 
         [OperationContract]
         void EndProcess(string ProcessName);
+
+        [OperationContract]
+        void StartService(string ServiceName);
+
+        [OperationContract]
+        void EndService(string ServiceName);
         
     }
 

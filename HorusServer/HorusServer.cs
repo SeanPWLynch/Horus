@@ -52,6 +52,34 @@ namespace ApplicationServer
             }
         }
 
+        public void StartRemoteService(string targetHost, string ServiceName)
+        {
+            try
+            {
+                ClientSideServiceClient targetClient = new ClientSideServiceClient();
+                targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
+                targetClient.StartProcess(ServiceName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void EndRemoteService(string targetHost, string ServiceName)
+        {
+            try
+            {
+                ClientSideServiceClient targetClient = new ClientSideServiceClient();
+                targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
+                targetClient.EndProcess(ServiceName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
         public void EndRemoteProcess(string targetHost, string ProcessName)
         {
             try

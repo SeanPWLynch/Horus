@@ -71,7 +71,19 @@ namespace HorusAdmin
                         string procName = Console.ReadLine();
                         AdminClient.EndRemoteProcess(procName, AdminClient.GetComputer(onlineClients[choice]).HostName);
                     }
-                    else if(option==6)
+                    else if (option == 6)
+                    {
+                        Console.WriteLine("Please enter a service name to start");
+                        string procName = Console.ReadLine();
+                        AdminClient.StartRemoteService(procName, AdminClient.GetComputer(onlineClients[choice]).HostName);
+                    }
+                    else if (option == 7)
+                    {
+                        Console.WriteLine("Please enter a service name to end");
+                        string procName = Console.ReadLine();
+                        AdminClient.EndRemoteService(procName, AdminClient.GetComputer(onlineClients[choice]).HostName);
+                    }
+                    else if(option==8)
                     {
                         intActive = false;
                     }

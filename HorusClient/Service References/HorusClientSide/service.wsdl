@@ -58,6 +58,30 @@
   <wsdl:message name="IClientSideService_Ping_OutputMessage">
     <wsdl:part name="parameters" element="tns:PingResponse" />
   </wsdl:message>
+  <wsdl:message name="IClientSideService_StartProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartProcess" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_StartProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_EndProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndProcess" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_EndProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_StartService_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartService" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_StartService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_EndService_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndService" />
+  </wsdl:message>
+  <wsdl:message name="IClientSideService_EndService_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EndServiceResponse" />
+  </wsdl:message>
   <wsdl:portType name="IClientSideService">
     <wsdl:operation name="GetHostName">
       <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/GetHostName" message="tns:IClientSideService_GetHostName_InputMessage" />
@@ -70,6 +94,22 @@
     <wsdl:operation name="Ping">
       <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/Ping" message="tns:IClientSideService_Ping_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClientSideService/PingResponse" message="tns:IClientSideService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/StartProcess" message="tns:IClientSideService_StartProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientSideService/StartProcessResponse" message="tns:IClientSideService_StartProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndProcess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/EndProcess" message="tns:IClientSideService_EndProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientSideService/EndProcessResponse" message="tns:IClientSideService_EndProcess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/StartService" message="tns:IClientSideService_StartService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientSideService/StartServiceResponse" message="tns:IClientSideService_StartService_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndService">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientSideService/EndService" message="tns:IClientSideService_EndService_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientSideService/EndServiceResponse" message="tns:IClientSideService_EndService_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IClientSideService" type="tns:IClientSideService">
@@ -96,6 +136,42 @@
     </wsdl:operation>
     <wsdl:operation name="Ping">
       <soap12:operation soapAction="http://tempuri.org/IClientSideService/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <soap12:operation soapAction="http://tempuri.org/IClientSideService/StartProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndProcess">
+      <soap12:operation soapAction="http://tempuri.org/IClientSideService/EndProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartService">
+      <soap12:operation soapAction="http://tempuri.org/IClientSideService/StartService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EndService">
+      <soap12:operation soapAction="http://tempuri.org/IClientSideService/EndService" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

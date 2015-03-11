@@ -23,6 +23,32 @@ namespace HorusShared.ComputerObjects
             SystemServices = ServiceController.GetServices();
         }
 
+        public void StartService(string serviceName)
+        {
+              ServiceController service = new ServiceController(serviceName);
+              try
+              {
+                    service.Start();
+              }
+              catch(Exception e)
+              {
+                Console.WriteLine(e.Message);
+              }
+        }
+
+        public void StopService(string serviceName)
+        {
+            ServiceController service = new ServiceController(serviceName);
+            try
+            {
+                service.Stop();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
 
     }
 }
