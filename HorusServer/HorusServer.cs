@@ -38,11 +38,6 @@ namespace ApplicationServer
             }
         }
 
-        public void EndRemoteProcess()
-        {
-            //TODO: Implement
-        }
-
         public void StartRemoteProcess(string targetHost, string ProcessName)
         {
             try

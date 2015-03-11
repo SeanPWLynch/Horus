@@ -22,10 +22,12 @@ namespace HorusClient
             {
                 ServerClientServiceClient client = new ServerClientServiceClient();
 
-                client.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://ie-ski-l225:13000/ServerClientService/ServerClientService");
+                client.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://"+Properties.Settings.Default.HorusServerAddress+":13000/ServerClientService/ServerClientService");
 
                 client.Open();
                 client.HandShake(Environment.MachineName);
+
+                Console.WriteLine("Connected To Server On: " + Properties.Settings.Default.HorusServerAddress);
 
                 Console.ReadLine();
 
