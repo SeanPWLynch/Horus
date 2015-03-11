@@ -38,12 +38,12 @@ namespace HorusShared
 
         public static void StartRemoteService(string ServiceName, string TargetHost)
         {
-            hs.StartRemoteProcess(TargetHost, ServiceName);
+            hs.StartRemoteService(TargetHost, ServiceName);
         }
 
         public static void EndRemoteService(string ServiceName, string TargetHost)
         {
-            hs.EndRemoteProcess(TargetHost, ServiceName);
+            hs.EndRemoteService(TargetHost, ServiceName);
         }
         
     }

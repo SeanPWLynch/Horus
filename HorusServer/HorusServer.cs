@@ -56,9 +56,10 @@ namespace ApplicationServer
         {
             try
             {
+                Console.WriteLine("Attempting To Start Service: "  + ServiceName + "on " + targetHost);
                 ClientSideServiceClient targetClient = new ClientSideServiceClient();
                 targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
-                targetClient.StartProcess(ServiceName);
+                targetClient.StartService(ServiceName);
             }
             catch (Exception e)
             {
@@ -70,9 +71,10 @@ namespace ApplicationServer
         {
             try
             {
+                Console.WriteLine("Attempting To stop Service: " + ServiceName + "on " + targetHost);
                 ClientSideServiceClient targetClient = new ClientSideServiceClient();
                 targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
-                targetClient.EndProcess(ServiceName);
+                targetClient.EndService(ServiceName);
             }
             catch (Exception e)
             {
