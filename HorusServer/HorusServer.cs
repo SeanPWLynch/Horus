@@ -52,7 +52,7 @@ namespace ApplicationServer
             }
         }
 
-        public void StartRemoteService(string targetHost, string ServiceName)
+        public void StartRemoteService(string targetHost, string ServiceName) //Working
         {
             try
             {
@@ -67,7 +67,7 @@ namespace ApplicationServer
             }
         }
 
-        public void EndRemoteService(string targetHost, string ServiceName)
+        public void EndRemoteService(string targetHost, string ServiceName)//Working
         {
             try
             {
