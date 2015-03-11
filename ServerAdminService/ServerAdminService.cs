@@ -26,6 +26,18 @@ namespace ServerAdminService
             HorusShared.HorusShared.EndRemoteProcess(ProcessName, TargetMachine);
         }
 
+        public void StartRemoteService(string ServiceName, string TargetMachine)
+        {
+
+            HorusShared.HorusShared.StartRemoteService(ServiceName, TargetMachine);
+        }
+
+        public void EndRemoteService(string ServiceName, string TargetMachine)
+        {
+
+            HorusShared.HorusShared.StartRemoteService(ServiceName, TargetMachine);
+        }
+
         public string GetHostName(string targetMachine)
         {
             return HorusShared.HorusShared.GetHostName(targetMachine);

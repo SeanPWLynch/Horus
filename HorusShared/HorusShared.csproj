@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ComputerObjects\Computer.cs" />
     <Compile Include="ComputerObjects\Processes.cs" />
+    <Compile Include="ComputerObjects\Services.cs" />
     <Compile Include="HorusShared.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

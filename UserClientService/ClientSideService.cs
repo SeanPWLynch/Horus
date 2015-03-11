@@ -23,6 +23,18 @@ namespace UserClientService
             ThisComputer.RunningProcesses.EndProcess(ProcessName);
         }
 
+        public void StartService(string ServiceName)
+        {
+            HorusShared.ComputerObjects.Computer ThisComputer = new HorusShared.ComputerObjects.Computer();
+            ThisComputer.RunningServices.StartService(ServiceName);
+        }
+
+        public void EndService(string ServiceName)
+        {
+            HorusShared.ComputerObjects.Computer ThisComputer = new HorusShared.ComputerObjects.Computer();
+            ThisComputer.RunningServices.StopService(ServiceName);
+        }
+
         public string GetHostName()
         {
             return Environment.MachineName;

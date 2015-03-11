@@ -11,6 +11,9 @@ namespace ApplicationServer
     {
         static void Main(string[] args)
         {
+            try
+            {
+            Console.WriteLine("Server Starting...");
             //Create Server
             HorusServer Server = new HorusServer();
 
@@ -27,9 +30,13 @@ namespace ApplicationServer
 
             Console.WriteLine("Server Live");
 
-
-
             Console.ReadLine();
+        }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
 
         }
     }

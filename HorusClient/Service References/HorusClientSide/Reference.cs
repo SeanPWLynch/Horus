@@ -41,6 +41,12 @@ namespace HorusClient.HorusClientSide {
         private string HostNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusClient.HorusClientSide.Processes RunningProcessesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusClient.HorusClientSide.Services RunningServicesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.TimeSpan SystemUpTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -135,6 +141,32 @@ namespace HorusClient.HorusClientSide {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusClient.HorusClientSide.Processes RunningProcesses {
+            get {
+                return this.RunningProcessesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RunningProcessesField, value) != true)) {
+                    this.RunningProcessesField = value;
+                    this.RaisePropertyChanged("RunningProcesses");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusClient.HorusClientSide.Services RunningServices {
+            get {
+                return this.RunningServicesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RunningServicesField, value) != true)) {
+                    this.RunningServicesField = value;
+                    this.RaisePropertyChanged("RunningServices");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.TimeSpan SystemUpTime {
             get {
                 return this.SystemUpTimeField;
@@ -170,6 +202,64 @@ namespace HorusClient.HorusClientSide {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Processes", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    public partial class Processes : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Services", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    public partial class Services : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HorusClientSide.IClientSideService")]
     public interface IClientSideService {
@@ -191,6 +281,30 @@ namespace HorusClient.HorusClientSide {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/Ping", ReplyAction="http://tempuri.org/IClientSideService/PingResponse")]
         System.Threading.Tasks.Task<bool> PingAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/StartProcess", ReplyAction="http://tempuri.org/IClientSideService/StartProcessResponse")]
+        void StartProcess(string ProcessName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/StartProcess", ReplyAction="http://tempuri.org/IClientSideService/StartProcessResponse")]
+        System.Threading.Tasks.Task StartProcessAsync(string ProcessName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/EndProcess", ReplyAction="http://tempuri.org/IClientSideService/EndProcessResponse")]
+        void EndProcess(string ProcessName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/EndProcess", ReplyAction="http://tempuri.org/IClientSideService/EndProcessResponse")]
+        System.Threading.Tasks.Task EndProcessAsync(string ProcessName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/StartService", ReplyAction="http://tempuri.org/IClientSideService/StartServiceResponse")]
+        void StartService(string ServiceName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/StartService", ReplyAction="http://tempuri.org/IClientSideService/StartServiceResponse")]
+        System.Threading.Tasks.Task StartServiceAsync(string ServiceName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/EndService", ReplyAction="http://tempuri.org/IClientSideService/EndServiceResponse")]
+        void EndService(string ServiceName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientSideService/EndService", ReplyAction="http://tempuri.org/IClientSideService/EndServiceResponse")]
+        System.Threading.Tasks.Task EndServiceAsync(string ServiceName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -242,6 +356,38 @@ namespace HorusClient.HorusClientSide {
         
         public System.Threading.Tasks.Task<bool> PingAsync() {
             return base.Channel.PingAsync();
+        }
+        
+        public void StartProcess(string ProcessName) {
+            base.Channel.StartProcess(ProcessName);
+        }
+        
+        public System.Threading.Tasks.Task StartProcessAsync(string ProcessName) {
+            return base.Channel.StartProcessAsync(ProcessName);
+        }
+        
+        public void EndProcess(string ProcessName) {
+            base.Channel.EndProcess(ProcessName);
+        }
+        
+        public System.Threading.Tasks.Task EndProcessAsync(string ProcessName) {
+            return base.Channel.EndProcessAsync(ProcessName);
+        }
+        
+        public void StartService(string ServiceName) {
+            base.Channel.StartService(ServiceName);
+        }
+        
+        public System.Threading.Tasks.Task StartServiceAsync(string ServiceName) {
+            return base.Channel.StartServiceAsync(ServiceName);
+        }
+        
+        public void EndService(string ServiceName) {
+            base.Channel.EndService(ServiceName);
+        }
+        
+        public System.Threading.Tasks.Task EndServiceAsync(string ServiceName) {
+            return base.Channel.EndServiceAsync(ServiceName);
         }
     }
 }

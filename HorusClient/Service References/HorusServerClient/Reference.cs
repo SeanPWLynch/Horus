@@ -41,6 +41,12 @@ namespace HorusClient.HorusServerClient {
         private string HostNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusClient.HorusServerClient.Processes RunningProcessesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusClient.HorusServerClient.Services RunningServicesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.TimeSpan SystemUpTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -135,6 +141,32 @@ namespace HorusClient.HorusServerClient {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusClient.HorusServerClient.Processes RunningProcesses {
+            get {
+                return this.RunningProcessesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RunningProcessesField, value) != true)) {
+                    this.RunningProcessesField = value;
+                    this.RaisePropertyChanged("RunningProcesses");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusClient.HorusServerClient.Services RunningServices {
+            get {
+                return this.RunningServicesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RunningServicesField, value) != true)) {
+                    this.RunningServicesField = value;
+                    this.RaisePropertyChanged("RunningServices");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.TimeSpan SystemUpTime {
             get {
                 return this.SystemUpTimeField;
@@ -157,6 +189,64 @@ namespace HorusClient.HorusServerClient {
                     this.UserNameField = value;
                     this.RaisePropertyChanged("UserName");
                 }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Processes", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    public partial class Processes : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Services", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    public partial class Services : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
             }
         }
         

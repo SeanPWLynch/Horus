@@ -43,7 +43,9 @@ namespace HorusAdmin
                     Console.WriteLine("3: Get System Uptime (In Minutes)");
                     Console.WriteLine("4: Start Remote Process");
                     Console.WriteLine("5: End Remote Process");
-                    Console.WriteLine("6: Exit");
+                    Console.WriteLine("6: Start Remote Service");
+                    Console.WriteLine("7: End Remote Service");
+                    Console.WriteLine("8: Exit");
                     int option = int.Parse(Console.ReadLine());    
 
                     if(option==1)
@@ -71,7 +73,19 @@ namespace HorusAdmin
                         string procName = Console.ReadLine();
                         AdminClient.EndRemoteProcess(procName, AdminClient.GetComputer(onlineClients[choice]).HostName);
                     }
-                    else if(option==6)
+                    else if (option==6)
+                    {
+                        Console.WriteLine("Please enter a service name to start");
+                        string procName = Console.ReadLine();
+                        AdminClient.StartRemoteService(procName, AdminClient.GetComputer(onlineClients[choice]).HostName);
+                    }
+                    else if (option==7)
+                    {
+                        Console.WriteLine("Please enter a service name to end");
+                        string procName = Console.ReadLine();
+                        AdminClient.EndRemoteService(procName, AdminClient.GetComputer(onlineClients[choice]).HostName);
+                    }
+                    else if(option==8)
                     {
                         intActive = false;
                     }

@@ -40,6 +40,32 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="StartRemoteService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="targetMachine" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartRemoteServiceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndRemoteService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="targetMachine" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndRemoteServiceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetHostName">
     <xs:complexType>
       <xs:sequence>

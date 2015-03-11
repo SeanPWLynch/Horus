@@ -39,6 +39,11 @@ namespace HorusShared.ComputerObjects
                     proc.WaitForExit();
                 }
         }
+
+        public Process[] GetProcesses()
+        {
+            return this.RunningProcesses;
+        }
     }
 
 }

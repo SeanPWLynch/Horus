@@ -38,11 +38,6 @@ namespace ApplicationServer
             }
         }
 
-        public void EndRemoteProcess()
-        {
-            //TODO: Implement
-        }
-
         public void StartRemoteProcess(string targetHost, string ProcessName)
         {
             try
@@ -50,6 +45,36 @@ namespace ApplicationServer
                 ClientSideServiceClient targetClient = new ClientSideServiceClient();
                 targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
                 targetClient.StartProcess(ProcessName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void StartRemoteService(string targetHost, string ServiceName)
+        {
+            try
+            {
+                Console.WriteLine("Attempting To Start Service: "  + ServiceName + "on " + targetHost);
+                ClientSideServiceClient targetClient = new ClientSideServiceClient();
+                targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
+                targetClient.StartService(ServiceName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void EndRemoteService(string targetHost, string ServiceName)
+        {
+            try
+            {
+                Console.WriteLine("Attempting To stop Service: " + ServiceName + "on " + targetHost);
+                ClientSideServiceClient targetClient = new ClientSideServiceClient();
+                targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
+                targetClient.EndService(ServiceName);
             }
             catch (Exception e)
             {
