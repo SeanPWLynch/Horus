@@ -20,7 +20,7 @@ namespace ApplicationServer
 
         public HorusServer()
         {
-            
+
         }
 
         public HorusShared.ComputerObjects.Computer GetComputer(string targetHost)
@@ -31,7 +31,7 @@ namespace ApplicationServer
                 targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
                 return targetClient.GetComputer();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return new HorusShared.ComputerObjects.Computer();
@@ -56,7 +56,7 @@ namespace ApplicationServer
         {
             try
             {
-                Console.WriteLine("Attempting To Start Service: "  + ServiceName + "on " + targetHost);
+                Console.WriteLine("Attempting To Start Service: " + ServiceName + "on " + targetHost);
                 ClientSideServiceClient targetClient = new ClientSideServiceClient();
                 targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + targetHost + ":15000/UserClientService/UserClientService");
                 targetClient.StartService(ServiceName);
@@ -126,7 +126,7 @@ namespace ApplicationServer
         {
             Uri ClientAddress = new Uri("net.tcp://localhost:13000/ServerClientService/");
             ServiceHost ClientHost = new ServiceHost(typeof(ServerClientService.ServerClientService), ClientAddress);
-            
+
             try
             {
                 ClientHost.AddServiceEndpoint(typeof(ServerClientService.IServerClientService), new NetTcpBinding(SecurityMode.None), "ServerClientService");
@@ -154,7 +154,7 @@ namespace ApplicationServer
                 targetClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + hostName + ":15000/UserClientService/UserClientService");
                 return targetClient.GetHostName();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return e.Message;
@@ -166,69 +166,80 @@ namespace ApplicationServer
             //Delay method start to ensure all services are ready
             Thread.Sleep(10000);
 
-            //While The Client Is Running
-            while(this.ClientHost.State.ToString()=="Opened")
+            Console.WriteLine("Checking For Clients");
+
+            try
             {
-                //Check Mongo For Client Names
-                var connectionString = "mongodb://localhost";
-                var client = new MongoClient(connectionString);
-                var server = client.GetServer();
-                var database = server.GetDatabase("horus");
-                var collection = database.GetCollection<ServerClientService.ServerClientService.Client>("Clients");
-                var res = collection.FindAll();
-                foreach(var clientName in res)
+
+                //While The Client Is Running
+                while (this.ClientHost.State.ToString() == "Opened")
                 {
-                    //Check if client exists in currently recognised online clients
-                    if(connectedClients.Contains(clientName.name))
+                    //Check Mongo For Client Names
+                    var connectionString = "mongodb://localhost";
+                    var client = new MongoClient(connectionString);
+                    var server = client.GetServer();
+                    var database = server.GetDatabase("horus");
+                    var collection = database.GetCollection<ServerClientService.ServerClientService.Client>("Clients");
+                    var res = collection.FindAll();
+                    foreach (var clientName in res)
                     {
-                        Console.WriteLine("Client: " + clientName.name + " Found In Connected Clients, Checking If Still Online");
-                        ClientSideServiceClient checkClient = new ClientSideServiceClient();
-                        checkClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + clientName.name + ":15000/UserClientService/UserClientService");
-                        try
+                        //Check if client exists in currently recognised online clients
+                        if (connectedClients.Contains(clientName.name))
                         {
-                            if (checkClient.Ping() == true)
+                            Console.WriteLine("Client: " + clientName.name + " Found In Connected Clients, Checking If Still Online");
+                            ClientSideServiceClient checkClient = new ClientSideServiceClient();
+                            checkClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + clientName.name + ":15000/UserClientService/UserClientService");
+                            try
                             {
-                                Console.WriteLine("Client: " + clientName.name + " Still Online");
-                            }
-                        }
-                        catch(Exception e)
-                        {
-                            Console.WriteLine("Client: " + clientName.name + " Changed to offline");
-                            for(int i = 0; i < connectedClients.Count; i++)
-                            {
-                                if(connectedClients[i] == clientName.name)
+                                if (checkClient.Ping() == true)
                                 {
-                                    connectedClients.RemoveAt(i);
-                                    Console.WriteLine("Client: " + clientName.name + " Removed From Connected Clients");
+                                    Console.WriteLine("Client: " + clientName.name + " Still Online");
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Client: " + clientName.name + " Changed to offline");
+                                for (int i = 0; i < connectedClients.Count; i++)
+                                {
+                                    if (connectedClients[i] == clientName.name)
+                                    {
+                                        connectedClients.RemoveAt(i);
+                                        Console.WriteLine("Client: " + clientName.name + " Removed From Connected Clients");
+                                    }
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        //Check if client is online
-                        ClientSideServiceClient checkClient = new ClientSideServiceClient();
-                        checkClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + clientName.name + ":15000/UserClientService/UserClientService");
-                        try
+                        else
                         {
-                            if (checkClient.Ping() == true)
+                            //Check if client is online
+                            ClientSideServiceClient checkClient = new ClientSideServiceClient();
+                            checkClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + clientName.name + ":15000/UserClientService/UserClientService");
+                            try
                             {
-                                Console.WriteLine("Client: " + clientName.name + " Online");
-                                Console.WriteLine("Adding To Connected Clients");
-                                connectedClients.Add(clientName.name);
+                                if (checkClient.Ping() == true)
+                                {
+                                    Console.WriteLine("Client: " + clientName.name + " Online");
+                                    Console.WriteLine("Adding To Connected Clients");
+                                    connectedClients.Add(clientName.name);
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Client: " + clientName.name + " Offline");
                             }
                         }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine("Client: " + clientName.name + " Offline");
-                        } 
+
                     }
-                    
+                    Thread.Sleep(10000);
                 }
-                Thread.Sleep(10000);
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
             }
 
         }
-
     }
 }
