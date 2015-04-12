@@ -25,6 +25,7 @@ namespace HorusShared.ComputerObjects
         public DisplayAdapters SystemGraphics;
         public NIC SystemNIC;
         public Volumes SystemVolumes;
+        public Processor SystemProcessor;
 
         public Computer()
         {
@@ -38,6 +39,7 @@ namespace HorusShared.ComputerObjects
             SystemGraphics = new DisplayAdapters();
             SystemNIC = new NIC();
             SystemVolumes = new Volumes();
+            SystemProcessor = new Processor();
 
 
         }

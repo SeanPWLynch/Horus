@@ -47,6 +47,7 @@
     <Compile Include="ComputerObjects\Motherboard.cs" />
     <Compile Include="ComputerObjects\NIC.cs" />
     <Compile Include="ComputerObjects\Processes.cs" />
+    <Compile Include="ComputerObjects\Processor.cs" />
     <Compile Include="ComputerObjects\RAM.cs" />
     <Compile Include="ComputerObjects\Services.cs" />
     <Compile Include="ComputerObjects\Volumes.cs" />
