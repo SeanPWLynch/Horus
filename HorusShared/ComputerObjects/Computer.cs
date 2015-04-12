@@ -20,6 +20,8 @@ namespace HorusShared.ComputerObjects
         public TimeSpan SystemUpTime;
         public Processes RunningProcesses;
         public Services RunningServices;
+        public Motherboard SystemMotherboard;
+        public RAM SystemRAM;
 
         public Computer()
         {
@@ -28,7 +30,8 @@ namespace HorusShared.ComputerObjects
             GetCPUInformation();
             RunningProcesses = new Processes();
             RunningServices = new Services();
-            
+            SystemMotherboard = new Motherboard();
+            SystemRAM = new RAM();
 
         }
 

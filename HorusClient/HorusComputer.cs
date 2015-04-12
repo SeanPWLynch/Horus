@@ -8,10 +8,10 @@ namespace HorusClient
 {
     class HorusComputer
     {
-        HorusComputer()
+        public HorusShared.ComputerObjects.Computer thisComputer;
+        public HorusComputer()
         {
-            new HorusShared.ComputerObjects.Computer();
-
+          thisComputer =  new HorusShared.ComputerObjects.Computer();
         }
     }
 }

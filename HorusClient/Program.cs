@@ -13,7 +13,11 @@ namespace HorusClient
     {
         static void Main(string[] args)
         {
+            HorusComputer thisComputer = new HorusComputer();
+            
             s_ClientHost ClientHost = new s_ClientHost();
+            
+
 
             Thread t_ClientHost = new Thread(ClientHost.StartServce);
             t_ClientHost.Start();
