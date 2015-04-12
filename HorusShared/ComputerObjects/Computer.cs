@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Management;
+using System.Security.Principal;
 
 namespace HorusShared.ComputerObjects
 {
@@ -38,7 +39,7 @@ namespace HorusShared.ComputerObjects
 
         public void GetuserName()
         {
-            this.UserName = Environment.UserName;
+            this.UserName = WindowsIdentity.GetCurrent().Name;
         }
 
         public void GetCPUInformation()
