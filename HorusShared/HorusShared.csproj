@@ -49,6 +49,7 @@
     <Compile Include="ComputerObjects\Processes.cs" />
     <Compile Include="ComputerObjects\RAM.cs" />
     <Compile Include="ComputerObjects\Services.cs" />
+    <Compile Include="ComputerObjects\Volumes.cs" />
     <Compile Include="HorusShared.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

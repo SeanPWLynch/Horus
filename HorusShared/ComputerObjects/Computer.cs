@@ -24,6 +24,7 @@ namespace HorusShared.ComputerObjects
         public RAM SystemRAM;
         public DisplayAdapters SystemGraphics;
         public NIC SystemNIC;
+        public Volumes SystemVolumes;
 
         public Computer()
         {
@@ -36,6 +37,8 @@ namespace HorusShared.ComputerObjects
             SystemRAM = new RAM();
             SystemGraphics = new DisplayAdapters();
             SystemNIC = new NIC();
+            SystemVolumes = new Volumes();
+
 
         }
 

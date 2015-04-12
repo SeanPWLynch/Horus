@@ -52,7 +52,7 @@ namespace HorusShared.ComputerObjects
                     }
                     catch
                     {
-                        myDevices[counter].id = "none";
+                        myDevices[counter].id = "Unknown";
                     }
                     try
                     {
