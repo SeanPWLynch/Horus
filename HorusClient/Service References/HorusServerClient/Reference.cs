@@ -27,6 +27,12 @@ namespace HorusClient.HorusServerClient {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerClientService/HandShake", ReplyAction="http://tempuri.org/IServerClientService/HandShakeResponse")]
         System.Threading.Tasks.Task HandShakeAsync(string hostName);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerClientService/RecieveComputer", ReplyAction="http://tempuri.org/IServerClientService/RecieveComputerResponse")]
+        void RecieveComputer(HorusShared.ComputerObjects.Computer System);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerClientService/RecieveComputer", ReplyAction="http://tempuri.org/IServerClientService/RecieveComputerResponse")]
+        System.Threading.Tasks.Task RecieveComputerAsync(HorusShared.ComputerObjects.Computer System);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServerClientService/GetComputer", ReplyAction="http://tempuri.org/IServerClientService/GetComputerResponse")]
         HorusShared.ComputerObjects.Computer GetComputer();
         
@@ -75,6 +81,14 @@ namespace HorusClient.HorusServerClient {
         
         public System.Threading.Tasks.Task HandShakeAsync(string hostName) {
             return base.Channel.HandShakeAsync(hostName);
+        }
+        
+        public void RecieveComputer(HorusShared.ComputerObjects.Computer System) {
+            base.Channel.RecieveComputer(System);
+        }
+        
+        public System.Threading.Tasks.Task RecieveComputerAsync(HorusShared.ComputerObjects.Computer System) {
+            return base.Channel.RecieveComputerAsync(System);
         }
         
         public HorusShared.ComputerObjects.Computer GetComputer() {

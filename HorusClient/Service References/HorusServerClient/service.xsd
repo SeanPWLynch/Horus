@@ -25,6 +25,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="RecieveComputer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects" minOccurs="0" name="System" nillable="true" type="q1:Computer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecieveComputerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetComputer">
     <xs:complexType>
       <xs:sequence />
@@ -33,7 +45,7 @@
   <xs:element name="GetComputerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects" minOccurs="0" name="GetComputerResult" nillable="true" type="q1:Computer" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects" minOccurs="0" name="GetComputerResult" nillable="true" type="q2:Computer" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

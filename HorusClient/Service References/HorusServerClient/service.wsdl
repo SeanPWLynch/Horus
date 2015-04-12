@@ -52,6 +52,12 @@
   <wsdl:message name="IServerClientService_HandShake_OutputMessage">
     <wsdl:part name="parameters" element="tns:HandShakeResponse" />
   </wsdl:message>
+  <wsdl:message name="IServerClientService_RecieveComputer_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecieveComputer" />
+  </wsdl:message>
+  <wsdl:message name="IServerClientService_RecieveComputer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecieveComputerResponse" />
+  </wsdl:message>
   <wsdl:message name="IServerClientService_GetComputer_InputMessage">
     <wsdl:part name="parameters" element="tns:GetComputer" />
   </wsdl:message>
@@ -66,6 +72,10 @@
     <wsdl:operation name="HandShake">
       <wsdl:input wsaw:Action="http://tempuri.org/IServerClientService/HandShake" message="tns:IServerClientService_HandShake_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServerClientService/HandShakeResponse" message="tns:IServerClientService_HandShake_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecieveComputer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServerClientService/RecieveComputer" message="tns:IServerClientService_RecieveComputer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServerClientService/RecieveComputerResponse" message="tns:IServerClientService_RecieveComputer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetComputer">
       <wsdl:input wsaw:Action="http://tempuri.org/IServerClientService/GetComputer" message="tns:IServerClientService_GetComputer_InputMessage" />
@@ -87,6 +97,15 @@
     </wsdl:operation>
     <wsdl:operation name="HandShake">
       <soap12:operation soapAction="http://tempuri.org/IServerClientService/HandShake" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecieveComputer">
+      <soap12:operation soapAction="http://tempuri.org/IServerClientService/RecieveComputer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

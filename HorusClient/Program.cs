@@ -14,6 +14,7 @@ namespace HorusClient
         static void Main(string[] args)
         {
             HorusComputer thisComputer = new HorusComputer();
+
             
             s_ClientHost ClientHost = new s_ClientHost();
             
@@ -30,8 +31,14 @@ namespace HorusClient
 
                 client.Open();
                 client.HandShake(Environment.MachineName);
-
+                
                 Console.WriteLine("Connected To Server On: " + Properties.Settings.Default.HorusServerAddress);
+
+                Console.WriteLine("Computer Send Test Starting");
+
+                client.RecieveComputer(thisComputer.thisComputer);
+
+                Console.WriteLine("Computer Send Test Finished");
 
                 Console.ReadLine();
 
