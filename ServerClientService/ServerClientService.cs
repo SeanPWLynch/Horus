@@ -7,17 +7,25 @@ using System.Text;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
+using System.Threading;
 
 
 namespace ServerClientService
 {
 
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall, ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class ServerClientService : IServerClientService
     {
 
         public void RecieveComputer(HorusShared.ComputerObjects.Computer System)
         {
-            Console.WriteLine(System.SystemMotherboard.Manufacturer);
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                /* run your code here */
+                Console.WriteLine(System.SystemMotherboard.Manufacturer);
+            }).Start();
+            
         }
         public string GetHostName()
         {

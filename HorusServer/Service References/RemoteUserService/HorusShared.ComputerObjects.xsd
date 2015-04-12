@@ -11,7 +11,13 @@
       <xs:element minOccurs="0" name="HostName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RunningProcesses" nillable="true" type="tns:Processes" />
       <xs:element minOccurs="0" name="RunningServices" nillable="true" type="tns:Services" />
+      <xs:element minOccurs="0" name="SystemGraphics" nillable="true" type="tns:DisplayAdapters" />
+      <xs:element minOccurs="0" name="SystemMotherboard" nillable="true" type="tns:Motherboard" />
+      <xs:element minOccurs="0" name="SystemNIC" nillable="true" type="tns:NIC" />
+      <xs:element minOccurs="0" name="SystemProcessor" nillable="true" type="tns:Processor" />
+      <xs:element minOccurs="0" name="SystemRAM" nillable="true" type="tns:RAM" />
       <xs:element minOccurs="0" name="SystemUpTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="SystemVolumes" nillable="true" type="tns:Volumes" />
       <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -24,4 +30,119 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="Services" nillable="true" type="tns:Services" />
+  <xs:complexType name="DisplayAdapters">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Hardware">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deviceMem" type="xs:long" />
+          <xs:element minOccurs="0" name="deviceNum" type="xs:int" />
+          <xs:element minOccurs="0" name="myDevices" nillable="true" type="tns:ArrayOfDisplayAdapters" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DisplayAdapters" nillable="true" type="tns:DisplayAdapters" />
+  <xs:complexType name="Hardware">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Hardware" nillable="true" type="tns:Hardware" />
+  <xs:complexType name="ArrayOfDisplayAdapters">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DisplayAdapters" nillable="true" type="tns:DisplayAdapters" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDisplayAdapters" nillable="true" type="tns:ArrayOfDisplayAdapters" />
+  <xs:complexType name="Motherboard">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Hardware">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SystemModel" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Motherboard" nillable="true" type="tns:Motherboard" />
+  <xs:complexType name="NIC">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Hardware">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="KBytesIn" type="xs:long" />
+          <xs:element minOccurs="0" name="KBytesOut" type="xs:long" />
+          <xs:element minOccurs="0" name="KBytesTotal" type="xs:long" />
+          <xs:element minOccurs="0" name="NICS" nillable="true" type="tns:ArrayOfNIC" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NIC" nillable="true" type="tns:NIC" />
+  <xs:complexType name="ArrayOfNIC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NIC" nillable="true" type="tns:NIC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNIC" nillable="true" type="tns:ArrayOfNIC" />
+  <xs:complexType name="Processor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Hardware">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cpuUsage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="numLogicalCores" type="xs:int" />
+          <xs:element minOccurs="0" name="numPhysicalCores" type="xs:int" />
+          <xs:element minOccurs="0" name="processes" type="xs:int" />
+          <xs:element minOccurs="0" name="threads" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Processor" nillable="true" type="tns:Processor" />
+  <xs:complexType name="RAM">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Hardware">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="freeRAM" type="xs:long" />
+          <xs:element minOccurs="0" name="installedRAM" nillable="true" type="tns:ArrayOfRAM" />
+          <xs:element minOccurs="0" name="moduleNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="moduleSize" type="xs:long" />
+          <xs:element minOccurs="0" name="numModules" type="xs:int" />
+          <xs:element minOccurs="0" name="speed" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="totalRAM" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RAM" nillable="true" type="tns:RAM" />
+  <xs:complexType name="ArrayOfRAM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RAM" nillable="true" type="tns:RAM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRAM" nillable="true" type="tns:ArrayOfRAM" />
+  <xs:complexType name="Volumes">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Hardware">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="driveCap" type="xs:long" />
+          <xs:element minOccurs="0" name="driveLetter" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="drives" nillable="true" type="tns:ArrayOfVolumes" />
+          <xs:element minOccurs="0" name="fileSystem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="freeSpace" type="xs:long" />
+          <xs:element minOccurs="0" name="osDrive" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="volRead" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="volUsage" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="volWrite" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Volumes" nillable="true" type="tns:Volumes" />
+  <xs:complexType name="ArrayOfVolumes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Volumes" nillable="true" type="tns:Volumes" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVolumes" nillable="true" type="tns:ArrayOfVolumes" />
 </xs:schema>

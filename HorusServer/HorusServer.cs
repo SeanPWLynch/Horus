@@ -110,6 +110,7 @@ namespace ApplicationServer
                 AdminHost.AddServiceEndpoint(typeof(ServerAdminService.IServerAdminService), new NetTcpBinding(SecurityMode.None), "ServerAdminService");
                 ServiceMetadataBehavior AdminMetaBehaviour = new ServiceMetadataBehavior();
                 AdminHost.Description.Behaviors.Add(AdminMetaBehaviour);
+
                 AdminHost.Open();
                 this.AdminHost = AdminHost;
                 Console.WriteLine("Admin: " + AdminHost.BaseAddresses[0]);
