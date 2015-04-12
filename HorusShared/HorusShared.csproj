@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComputerObjects\Computer.cs" />
+    <Compile Include="ComputerObjects\DisplayAdapters.cs" />
     <Compile Include="ComputerObjects\Hardware.cs" />
     <Compile Include="ComputerObjects\Motherboard.cs" />
+    <Compile Include="ComputerObjects\NIC.cs" />
     <Compile Include="ComputerObjects\Processes.cs" />
     <Compile Include="ComputerObjects\RAM.cs" />
     <Compile Include="ComputerObjects\Services.cs" />

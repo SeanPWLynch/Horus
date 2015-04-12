@@ -78,6 +78,35 @@ namespace HorusShared.ComputerObjects
                 }
                 counter++;
             }
+
+            
+            try
+            {
+                searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_OperatingSystem");
+
+                searchList = searcher.Get();
+
+                foreach (ManagementObject mo in searchList)
+                {
+                    this.freeRAM = long.Parse(mo["FreePhysicalMemory"].ToString().Trim()) / 1024;
+                }
+            }
+            catch(Exception e)
+            {
+                this.freeRAM = 0;
+            }
+
+            try
+            {
+                for (int i = 0; i < this.installedRAM.Count(); i++)
+                {
+                    this.totalRAM += this.installedRAM[i].moduleSize;
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
         public RAM(int moduleNumber)

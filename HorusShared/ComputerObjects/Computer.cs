@@ -22,6 +22,8 @@ namespace HorusShared.ComputerObjects
         public Services RunningServices;
         public Motherboard SystemMotherboard;
         public RAM SystemRAM;
+        public DisplayAdapters SystemGraphics;
+        public NIC SystemNIC;
 
         public Computer()
         {
@@ -32,6 +34,8 @@ namespace HorusShared.ComputerObjects
             RunningServices = new Services();
             SystemMotherboard = new Motherboard();
             SystemRAM = new RAM();
+            SystemGraphics = new DisplayAdapters();
+            SystemNIC = new NIC();
 
         }
 
