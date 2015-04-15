@@ -48,11 +48,9 @@ namespace HorusClient
 
                 IJobDetail job = JobBuilder.Create(typeof(ScheduledSendUpdate)).WithIdentity("MyJob", "MyJobGroup").Build();
 
-                ITrigger trigger = TriggerBuilder.Create().WithSchedule(SimpleScheduleBuilder.RepeatSecondlyForTotalCount(10)).StartNow().WithIdentity("MyJobTrigger", "MyJobTriggerGroup").Build();
+                ITrigger trigger = TriggerBuilder.Create().WithDailyTimeIntervalSchedule( s => s.WithIntervalInHours(24).OnEveryDay().StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(14,47)).InTimeZone(TimeZoneInfo.Local)).Build();
                 Scheduler.ScheduleJob(job, trigger);
-
-
-                //client.RecieveComputer(thisComputer.thisComputer); // For Testing
+                client.RecieveComputer(thisComputer); // For Testing
 
 
                 Console.ReadLine();

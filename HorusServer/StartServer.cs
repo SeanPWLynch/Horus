@@ -19,14 +19,28 @@ namespace ApplicationServer
 
 
             //Start The Server Service
-            Server.StartAdmin();
+new Thread(() => 
+{
+    Thread.CurrentThread.IsBackground = true;
+    Server.StartAdmin();
+}).Start();
+            
 
             //Start The Client Service
-            Server.StartClient();
+new Thread(() =>
+{
+    Thread.CurrentThread.IsBackground = true;
+    Server.StartClient();
+}).Start();
+            
+            
 
             //Start Looking For Clients
-            Thread t_CheckForClients = new Thread(Server.CheckForClients);
-            t_CheckForClients.Start();
+new Thread(() =>
+{
+    Thread.CurrentThread.IsBackground = true;
+    Server.CheckForClients();
+}).Start();
 
             Console.WriteLine("Server Live");
 

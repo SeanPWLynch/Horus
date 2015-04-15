@@ -47,7 +47,25 @@ namespace HorusAdmin.Horus {
         private HorusAdmin.Horus.Services RunningServicesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusAdmin.Horus.DisplayAdapters SystemGraphicsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusAdmin.Horus.Motherboard SystemMotherboardField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusAdmin.Horus.NIC SystemNICField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusAdmin.Horus.Processor SystemProcessorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusAdmin.Horus.RAM SystemRAMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.TimeSpan SystemUpTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusAdmin.Horus.Volumes SystemVolumesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UserNameField;
@@ -167,6 +185,71 @@ namespace HorusAdmin.Horus {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusAdmin.Horus.DisplayAdapters SystemGraphics {
+            get {
+                return this.SystemGraphicsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SystemGraphicsField, value) != true)) {
+                    this.SystemGraphicsField = value;
+                    this.RaisePropertyChanged("SystemGraphics");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusAdmin.Horus.Motherboard SystemMotherboard {
+            get {
+                return this.SystemMotherboardField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SystemMotherboardField, value) != true)) {
+                    this.SystemMotherboardField = value;
+                    this.RaisePropertyChanged("SystemMotherboard");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusAdmin.Horus.NIC SystemNIC {
+            get {
+                return this.SystemNICField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SystemNICField, value) != true)) {
+                    this.SystemNICField = value;
+                    this.RaisePropertyChanged("SystemNIC");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusAdmin.Horus.Processor SystemProcessor {
+            get {
+                return this.SystemProcessorField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SystemProcessorField, value) != true)) {
+                    this.SystemProcessorField = value;
+                    this.RaisePropertyChanged("SystemProcessor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusAdmin.Horus.RAM SystemRAM {
+            get {
+                return this.SystemRAMField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SystemRAMField, value) != true)) {
+                    this.SystemRAMField = value;
+                    this.RaisePropertyChanged("SystemRAM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.TimeSpan SystemUpTime {
             get {
                 return this.SystemUpTimeField;
@@ -175,6 +258,19 @@ namespace HorusAdmin.Horus {
                 if ((this.SystemUpTimeField.Equals(value) != true)) {
                     this.SystemUpTimeField = value;
                     this.RaisePropertyChanged("SystemUpTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusAdmin.Horus.Volumes SystemVolumes {
+            get {
+                return this.SystemVolumesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SystemVolumesField, value) != true)) {
+                    this.SystemVolumesField = value;
+                    this.RaisePropertyChanged("SystemVolumes");
                 }
             }
         }
@@ -247,6 +343,595 @@ namespace HorusAdmin.Horus {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DisplayAdapters", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    public partial class DisplayAdapters : HorusAdmin.Horus.Hardware {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long deviceMemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int deviceNumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusAdmin.Horus.DisplayAdapters[] myDevicesField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long deviceMem {
+            get {
+                return this.deviceMemField;
+            }
+            set {
+                if ((this.deviceMemField.Equals(value) != true)) {
+                    this.deviceMemField = value;
+                    this.RaisePropertyChanged("deviceMem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int deviceNum {
+            get {
+                return this.deviceNumField;
+            }
+            set {
+                if ((this.deviceNumField.Equals(value) != true)) {
+                    this.deviceNumField = value;
+                    this.RaisePropertyChanged("deviceNum");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusAdmin.Horus.DisplayAdapters[] myDevices {
+            get {
+                return this.myDevicesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.myDevicesField, value) != true)) {
+                    this.myDevicesField = value;
+                    this.RaisePropertyChanged("myDevices");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Motherboard", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    public partial class Motherboard : HorusAdmin.Horus.Hardware {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SystemModelField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SystemModel {
+            get {
+                return this.SystemModelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SystemModelField, value) != true)) {
+                    this.SystemModelField = value;
+                    this.RaisePropertyChanged("SystemModel");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NIC", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    public partial class NIC : HorusAdmin.Horus.Hardware {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long KBytesInField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long KBytesOutField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long KBytesTotalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusAdmin.Horus.NIC[] NICSField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long KBytesIn {
+            get {
+                return this.KBytesInField;
+            }
+            set {
+                if ((this.KBytesInField.Equals(value) != true)) {
+                    this.KBytesInField = value;
+                    this.RaisePropertyChanged("KBytesIn");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long KBytesOut {
+            get {
+                return this.KBytesOutField;
+            }
+            set {
+                if ((this.KBytesOutField.Equals(value) != true)) {
+                    this.KBytesOutField = value;
+                    this.RaisePropertyChanged("KBytesOut");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long KBytesTotal {
+            get {
+                return this.KBytesTotalField;
+            }
+            set {
+                if ((this.KBytesTotalField.Equals(value) != true)) {
+                    this.KBytesTotalField = value;
+                    this.RaisePropertyChanged("KBytesTotal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusAdmin.Horus.NIC[] NICS {
+            get {
+                return this.NICSField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NICSField, value) != true)) {
+                    this.NICSField = value;
+                    this.RaisePropertyChanged("NICS");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Processor", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    public partial class Processor : HorusAdmin.Horus.Hardware {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cpuUsageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numLogicalCoresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numPhysicalCoresField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int processesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int threadsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cpuUsage {
+            get {
+                return this.cpuUsageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cpuUsageField, value) != true)) {
+                    this.cpuUsageField = value;
+                    this.RaisePropertyChanged("cpuUsage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int numLogicalCores {
+            get {
+                return this.numLogicalCoresField;
+            }
+            set {
+                if ((this.numLogicalCoresField.Equals(value) != true)) {
+                    this.numLogicalCoresField = value;
+                    this.RaisePropertyChanged("numLogicalCores");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int numPhysicalCores {
+            get {
+                return this.numPhysicalCoresField;
+            }
+            set {
+                if ((this.numPhysicalCoresField.Equals(value) != true)) {
+                    this.numPhysicalCoresField = value;
+                    this.RaisePropertyChanged("numPhysicalCores");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int processes {
+            get {
+                return this.processesField;
+            }
+            set {
+                if ((this.processesField.Equals(value) != true)) {
+                    this.processesField = value;
+                    this.RaisePropertyChanged("processes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int threads {
+            get {
+                return this.threadsField;
+            }
+            set {
+                if ((this.threadsField.Equals(value) != true)) {
+                    this.threadsField = value;
+                    this.RaisePropertyChanged("threads");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RAM", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    public partial class RAM : HorusAdmin.Horus.Hardware {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long freeRAMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusAdmin.Horus.RAM[] installedRAMField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int moduleNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long moduleSizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numModulesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string speedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long totalRAMField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long freeRAM {
+            get {
+                return this.freeRAMField;
+            }
+            set {
+                if ((this.freeRAMField.Equals(value) != true)) {
+                    this.freeRAMField = value;
+                    this.RaisePropertyChanged("freeRAM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusAdmin.Horus.RAM[] installedRAM {
+            get {
+                return this.installedRAMField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.installedRAMField, value) != true)) {
+                    this.installedRAMField = value;
+                    this.RaisePropertyChanged("installedRAM");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int moduleNumber {
+            get {
+                return this.moduleNumberField;
+            }
+            set {
+                if ((this.moduleNumberField.Equals(value) != true)) {
+                    this.moduleNumberField = value;
+                    this.RaisePropertyChanged("moduleNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long moduleSize {
+            get {
+                return this.moduleSizeField;
+            }
+            set {
+                if ((this.moduleSizeField.Equals(value) != true)) {
+                    this.moduleSizeField = value;
+                    this.RaisePropertyChanged("moduleSize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int numModules {
+            get {
+                return this.numModulesField;
+            }
+            set {
+                if ((this.numModulesField.Equals(value) != true)) {
+                    this.numModulesField = value;
+                    this.RaisePropertyChanged("numModules");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string speed {
+            get {
+                return this.speedField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.speedField, value) != true)) {
+                    this.speedField = value;
+                    this.RaisePropertyChanged("speed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long totalRAM {
+            get {
+                return this.totalRAMField;
+            }
+            set {
+                if ((this.totalRAMField.Equals(value) != true)) {
+                    this.totalRAMField = value;
+                    this.RaisePropertyChanged("totalRAM");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Volumes", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    public partial class Volumes : HorusAdmin.Horus.Hardware {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long driveCapField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string driveLetterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private HorusAdmin.Horus.Volumes[] drivesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string fileSystemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long freeSpaceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string osDriveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string volReadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string volUsageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string volWriteField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long driveCap {
+            get {
+                return this.driveCapField;
+            }
+            set {
+                if ((this.driveCapField.Equals(value) != true)) {
+                    this.driveCapField = value;
+                    this.RaisePropertyChanged("driveCap");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string driveLetter {
+            get {
+                return this.driveLetterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.driveLetterField, value) != true)) {
+                    this.driveLetterField = value;
+                    this.RaisePropertyChanged("driveLetter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public HorusAdmin.Horus.Volumes[] drives {
+            get {
+                return this.drivesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.drivesField, value) != true)) {
+                    this.drivesField = value;
+                    this.RaisePropertyChanged("drives");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string fileSystem {
+            get {
+                return this.fileSystemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.fileSystemField, value) != true)) {
+                    this.fileSystemField = value;
+                    this.RaisePropertyChanged("fileSystem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long freeSpace {
+            get {
+                return this.freeSpaceField;
+            }
+            set {
+                if ((this.freeSpaceField.Equals(value) != true)) {
+                    this.freeSpaceField = value;
+                    this.RaisePropertyChanged("freeSpace");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string osDrive {
+            get {
+                return this.osDriveField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.osDriveField, value) != true)) {
+                    this.osDriveField = value;
+                    this.RaisePropertyChanged("osDrive");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string volRead {
+            get {
+                return this.volReadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.volReadField, value) != true)) {
+                    this.volReadField = value;
+                    this.RaisePropertyChanged("volRead");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string volUsage {
+            get {
+                return this.volUsageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.volUsageField, value) != true)) {
+                    this.volUsageField = value;
+                    this.RaisePropertyChanged("volUsage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string volWrite {
+            get {
+                return this.volWriteField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.volWriteField, value) != true)) {
+                    this.volWriteField = value;
+                    this.RaisePropertyChanged("volWrite");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Hardware", Namespace="http://schemas.datacontract.org/2004/07/HorusShared.ComputerObjects")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(HorusAdmin.Horus.Motherboard))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(HorusAdmin.Horus.NIC))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(HorusAdmin.Horus.Processor))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(HorusAdmin.Horus.RAM))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(HorusAdmin.Horus.Volumes))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(HorusAdmin.Horus.DisplayAdapters))]
+    public partial class Hardware : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ManufacturerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Manufacturer {
+            get {
+                return this.ManufacturerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ManufacturerField, value) != true)) {
+                    this.ManufacturerField = value;
+                    this.RaisePropertyChanged("Manufacturer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Model {
+            get {
+                return this.ModelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModelField, value) != true)) {
+                    this.ModelField = value;
+                    this.RaisePropertyChanged("Model");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.idField, value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
             }
         }
         

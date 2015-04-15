@@ -19,12 +19,11 @@ namespace ServerClientService
 
         public void RecieveComputer(HorusShared.ComputerObjects.Computer System)
         {
-            new Thread(() =>
-            {
-                Thread.CurrentThread.IsBackground = true;
+
+                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+                Console.WriteLine(sw.ElapsedMilliseconds + "ms");
                 /* run your code here */
                 Console.WriteLine(System.SystemMotherboard.Manufacturer);
-            }).Start();
             
         }
         public string GetHostName()
