@@ -5,5 +5,11 @@
     <Setting Name="HorusServerAddress" Type="System.String" Scope="Application">
       <Value Profile="(Default)">dev-server2012</Value>
     </Setting>
+    <Setting Name="UpdateTimeHour" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">18</Value>
+    </Setting>
+    <Setting Name="UpdateTimeMin" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

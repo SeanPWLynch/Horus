@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HorusClient.Properties {
+namespace HorusShared.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,28 +25,19 @@ namespace HorusClient.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("dev-server2012")]
-        public string HorusServerAddress {
+        [global::System.Configuration.DefaultSettingValueAttribute("ie-ski-l225")]
+        public string ServerAddress {
             get {
-                return ((string)(this["HorusServerAddress"]));
+                return ((string)(this["ServerAddress"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("18")]
-        public int UpdateTimeHour {
+        [global::System.Configuration.DefaultSettingValueAttribute("HorusDB")]
+        public string DatabaseName {
             get {
-                return ((int)(this["UpdateTimeHour"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int UpdateTimeMin {
-            get {
-                return ((int)(this["UpdateTimeMin"]));
+                return ((string)(this["DatabaseName"]));
             }
         }
     }
