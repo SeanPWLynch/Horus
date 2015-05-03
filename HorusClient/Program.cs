@@ -40,7 +40,7 @@ namespace HorusClient
             try
             {
                 client.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://"+Properties.Settings.Default.HorusServerAddress+":13000/ServerClientService/ServerClientService");
-
+                
                 client.Open();
                 client.HandShake(Environment.MachineName);
                 

@@ -26,6 +26,7 @@ namespace HorusClient
 
             // Step 2 Create a ServiceHost instance
             ServiceHost ClientSideHost = new ServiceHost(typeof(UserClientService.ClientSideService), ClientSideAddress);
+
             try
             {
                 // Step 3 Add a service endpoint.
@@ -37,6 +38,7 @@ namespace HorusClient
 
                 // Step 5 Start the service.
                 ClientSideHost.Open();
+
                 Console.WriteLine("The services are ready.");
                 Console.WriteLine("Admin: " + ClientSideHost.BaseAddresses[0]);
                 Console.WriteLine();

@@ -4,13 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HorusAdmin.Horus;
+using System.Windows.Forms;
 
 namespace HorusAdmin
 {
     class Program
     {
+
+        public static string[] onlineClients;
+
+        [STAThread]
         static void Main(string[] args)
         {
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new HorusAdminMain());
+        }
+
+        public static void GetClients()
+        {
+            ServerAdminServiceClient AdminClient = new ServerAdminServiceClient();
+            //net.tcp://localhost:12000/ServerAdminService/ServerAdminService/
+            AdminClient.Endpoint.Address = new System.ServiceModel.EndpointAddress("net.tcp://" + Properties.Settings.Default.HorusServerAddress + ":12000/ServerAdminService/ServerAdminService/");
+
+            AdminClient.Open();
+
+            onlineClients = AdminClient.GetClients();
+
+        }
+
+
+
+        /*
             try
             {
                 Console.WriteLine("Starting Testing");
@@ -99,6 +125,6 @@ namespace HorusAdmin
             {
                 Console.WriteLine(e.Message);
             }
-        }
+        }*/
     }
 }

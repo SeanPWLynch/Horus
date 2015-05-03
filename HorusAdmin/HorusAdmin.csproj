@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5D544593-D2B2-4489-BBD1-07000E48E850}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HorusAdmin</RootNamespace>
     <AssemblyName>HorusAdmin</AssemblyName>
@@ -34,11 +34,16 @@
   <PropertyGroup>
     <ApplicationIcon>HLogo.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>HorusAdmin.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HorusAdminMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HorusAdminMain.Designer.cs">
+      <DependentUpon>HorusAdminMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -102,6 +113,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HLogo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HorusAdminMain.resx">
+      <DependentUpon>HorusAdminMain.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
