@@ -14,18 +14,5 @@ namespace AdminClientService
         {
             return Environment.MachineName;
         }
-
-        public Computer GetComputer(Computer computer)
-        {
-            if (computer == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (computer.BoolValue)
-            {
-                computer.StringValue += "Suffix";
-            }
-            return computer;
-        }
     }
 }

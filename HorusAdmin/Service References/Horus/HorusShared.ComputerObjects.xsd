@@ -14,6 +14,7 @@
       <xs:element minOccurs="0" name="SystemGraphics" nillable="true" type="tns:DisplayAdapters" />
       <xs:element minOccurs="0" name="SystemMotherboard" nillable="true" type="tns:Motherboard" />
       <xs:element minOccurs="0" name="SystemNIC" nillable="true" type="tns:NIC" />
+      <xs:element minOccurs="0" name="SystemOS" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SystemProcessor" nillable="true" type="tns:Processor" />
       <xs:element minOccurs="0" name="SystemRAM" nillable="true" type="tns:RAM" />
       <xs:element minOccurs="0" name="SystemUpTime" type="ser:duration" />

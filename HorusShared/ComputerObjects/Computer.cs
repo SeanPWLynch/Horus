@@ -17,6 +17,7 @@ namespace HorusShared.ComputerObjects
         public int CPUNumPhysicalCores;
         public int CPUNumLogicalCores;
         public string CPUID;
+        public string SystemOS;
         public TimeSpan SystemUpTime;
         public Processes RunningProcesses;
         public Services RunningServices;
@@ -40,8 +41,7 @@ namespace HorusShared.ComputerObjects
             SystemNIC = new NIC();
             SystemVolumes = new Volumes();
             SystemProcessor = new Processor();
-
-
+            SystemOS = Environment.OSVersion.VersionString;
         }
 
         public void GetHostName()

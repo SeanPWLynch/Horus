@@ -38,6 +38,9 @@
     <StartupObject>HorusAdmin.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HorusShared">
+      <HintPath>..\HorusShared\bin\Debug\HorusShared.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -72,15 +75,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Properties\DataSources\HorusShared.ComputerObjects.Computer.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Service References\Horus\Arrays.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\Horus\HorusAdmin.Horus.Computer.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\Horus\HorusShared.ComputerObjects.xsd">
       <SubType>Designer</SubType>

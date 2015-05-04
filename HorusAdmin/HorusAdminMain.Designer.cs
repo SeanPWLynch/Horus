@@ -28,37 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("ID: ");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Operating System: ");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Computer Name: ");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Computer Details", new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode18,
-            treeNode19});
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Name: ", 1, 1);
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Physical Cores: ", 1, 1);
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Logical Cores:", 1, 1);
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("CPU", 1, 1, new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22,
-            treeNode23});
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Manufacturer:", 3, 3);
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Model:", 3, 3);
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("System Model: ", 3, 3);
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3, new System.Windows.Forms.TreeNode[] {
-            treeNode25,
-            treeNode26,
-            treeNode27});
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Memory", 4, 4);
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Storage", 5, 5);
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Display Adapters", 2, 2);
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("System", new System.Windows.Forms.TreeNode[] {
-            treeNode20,
-            treeNode24,
-            treeNode28,
-            treeNode29,
-            treeNode30,
-            treeNode31});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("ID: ");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Operating System: ");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Computer Name: ");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Computer Details", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Name: ", 1, 1);
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Physical Cores: ", 1, 1);
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Logical Cores:", 1, 1);
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("CPU", 1, 1, new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6,
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Manufacturer:", 3, 3);
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Model:", 3, 3);
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("System Model: ", 3, 3);
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Motherboard", 3, 3, new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10,
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Total Ram");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Memory Speed");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Manufacturer:");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Memory", 4, 4, new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("System", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode8,
+            treeNode12,
+            treeNode16});
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +71,11 @@
             this.serverMainSplitContainer = new System.Windows.Forms.SplitContainer();
             this.tabControlCliens = new System.Windows.Forms.TabControl();
             this.onlineClients = new System.Windows.Forms.TabPage();
+            this.pbOnlineClients = new System.Windows.Forms.ProgressBar();
+            this.lstViewHorusOnlineClients = new System.Windows.Forms.ListView();
+            this.clnComputerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clnUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.clnUptime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.offlinClients = new System.Windows.Forms.TabPage();
             this.tabInfoContainer = new System.Windows.Forms.TabControl();
             this.tabHardwarePage = new System.Windows.Forms.TabPage();
@@ -136,6 +143,7 @@
             this.serverMainSplitContainer.Panel2.SuspendLayout();
             this.serverMainSplitContainer.SuspendLayout();
             this.tabControlCliens.SuspendLayout();
+            this.onlineClients.SuspendLayout();
             this.tabInfoContainer.SuspendLayout();
             this.tabHardwarePage.SuspendLayout();
             this.tabControlHardware.SuspendLayout();
@@ -250,6 +258,8 @@
             // 
             // onlineClients
             // 
+            this.onlineClients.Controls.Add(this.pbOnlineClients);
+            this.onlineClients.Controls.Add(this.lstViewHorusOnlineClients);
             this.onlineClients.Location = new System.Drawing.Point(4, 22);
             this.onlineClients.Name = "onlineClients";
             this.onlineClients.Padding = new System.Windows.Forms.Padding(3);
@@ -258,12 +268,58 @@
             this.onlineClients.Text = "Online Clients";
             this.onlineClients.UseVisualStyleBackColor = true;
             // 
+            // pbOnlineClients
+            // 
+            this.pbOnlineClients.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pbOnlineClients.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pbOnlineClients.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.pbOnlineClients.Location = new System.Drawing.Point(3, 370);
+            this.pbOnlineClients.MarqueeAnimationSpeed = 5;
+            this.pbOnlineClients.Maximum = 1000;
+            this.pbOnlineClients.Name = "pbOnlineClients";
+            this.pbOnlineClients.Size = new System.Drawing.Size(552, 23);
+            this.pbOnlineClients.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pbOnlineClients.TabIndex = 1;
+            // 
+            // lstViewHorusOnlineClients
+            // 
+            this.lstViewHorusOnlineClients.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clnComputerName,
+            this.clnUser,
+            this.clnUptime});
+            this.lstViewHorusOnlineClients.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstViewHorusOnlineClients.FullRowSelect = true;
+            this.lstViewHorusOnlineClients.GridLines = true;
+            this.lstViewHorusOnlineClients.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lstViewHorusOnlineClients.Location = new System.Drawing.Point(3, 3);
+            this.lstViewHorusOnlineClients.MultiSelect = false;
+            this.lstViewHorusOnlineClients.Name = "lstViewHorusOnlineClients";
+            this.lstViewHorusOnlineClients.Size = new System.Drawing.Size(552, 390);
+            this.lstViewHorusOnlineClients.TabIndex = 0;
+            this.lstViewHorusOnlineClients.UseCompatibleStateImageBehavior = false;
+            this.lstViewHorusOnlineClients.View = System.Windows.Forms.View.Details;
+            this.lstViewHorusOnlineClients.SelectedIndexChanged += new System.EventHandler(this.lstViewHorusOnlineClients_SelectedIndexChanged);
+            // 
+            // clnComputerName
+            // 
+            this.clnComputerName.Text = "Computer Name";
+            this.clnComputerName.Width = 100;
+            // 
+            // clnUser
+            // 
+            this.clnUser.Text = "Connected User";
+            this.clnUser.Width = 131;
+            // 
+            // clnUptime
+            // 
+            this.clnUptime.Text = "System Uptime";
+            // 
             // offlinClients
             // 
             this.offlinClients.Location = new System.Drawing.Point(4, 22);
             this.offlinClients.Name = "offlinClients";
             this.offlinClients.Padding = new System.Windows.Forms.Padding(3);
-            this.offlinClients.Size = new System.Drawing.Size(620, 462);
+            this.offlinClients.Size = new System.Drawing.Size(558, 396);
             this.offlinClients.TabIndex = 1;
             this.offlinClients.Text = "Offline Clients";
             this.offlinClients.UseVisualStyleBackColor = true;
@@ -320,63 +376,61 @@
             this.hardwareTreeView.Dock = System.Windows.Forms.DockStyle.Left;
             this.hardwareTreeView.Location = new System.Drawing.Point(3, 3);
             this.hardwareTreeView.Name = "hardwareTreeView";
-            treeNode17.Name = "ComputerID";
-            treeNode17.Text = "ID: ";
-            treeNode18.Name = "OperatingSystem";
-            treeNode18.Text = "Operating System: ";
-            treeNode19.Name = "ComputerName";
-            treeNode19.Text = "Computer Name: ";
-            treeNode20.Name = "ComputerDetails";
-            treeNode20.Text = "Computer Details";
-            treeNode21.ImageIndex = 1;
-            treeNode21.Name = "CPUName";
-            treeNode21.SelectedImageIndex = 1;
-            treeNode21.Text = "Name: ";
-            treeNode22.ImageIndex = 1;
-            treeNode22.Name = "PhysicalCores";
-            treeNode22.SelectedImageIndex = 1;
-            treeNode22.Text = "Physical Cores: ";
-            treeNode23.ImageIndex = 1;
-            treeNode23.Name = "LogicalCores";
-            treeNode23.SelectedImageIndex = 1;
-            treeNode23.Text = "Logical Cores:";
-            treeNode24.ImageIndex = 1;
-            treeNode24.Name = "CPU";
-            treeNode24.SelectedImageIndex = 1;
-            treeNode24.Text = "CPU";
-            treeNode25.ImageIndex = 3;
-            treeNode25.Name = "MoboManufacturer";
-            treeNode25.SelectedImageIndex = 3;
-            treeNode25.Text = "Manufacturer:";
-            treeNode26.ImageIndex = 3;
-            treeNode26.Name = "MoboModel: ";
-            treeNode26.SelectedImageIndex = 3;
-            treeNode26.Text = "Model:";
-            treeNode27.ImageIndex = 3;
-            treeNode27.Name = "MoboSystemModel";
-            treeNode27.SelectedImageIndex = 3;
-            treeNode27.Text = "System Model: ";
-            treeNode28.ImageIndex = 3;
-            treeNode28.Name = "Motherboard";
-            treeNode28.SelectedImageIndex = 3;
-            treeNode28.Text = "Motherboard";
-            treeNode29.ImageIndex = 4;
-            treeNode29.Name = "Memory";
-            treeNode29.SelectedImageIndex = 4;
-            treeNode29.Text = "Memory";
-            treeNode30.ImageIndex = 5;
-            treeNode30.Name = "Storage";
-            treeNode30.SelectedImageIndex = 5;
-            treeNode30.Text = "Storage";
-            treeNode31.ImageIndex = 2;
-            treeNode31.Name = "Display";
-            treeNode31.SelectedImageIndex = 2;
-            treeNode31.Text = "Display Adapters";
-            treeNode32.ImageIndex = 0;
-            treeNode32.Name = "System";
-            treeNode32.Text = "System";
+            treeNode1.Name = "ComputerID";
+            treeNode1.Text = "ID: ";
+            treeNode2.Name = "OperatingSystem";
+            treeNode2.Text = "Operating System: ";
+            treeNode3.Name = "ComputerName";
+            treeNode3.Text = "Computer Name: ";
+            treeNode4.Name = "ComputerDetails";
+            treeNode4.Text = "Computer Details";
+            treeNode5.ImageIndex = 1;
+            treeNode5.Name = "CPUName";
+            treeNode5.SelectedImageIndex = 1;
+            treeNode5.Text = "Name: ";
+            treeNode6.ImageIndex = 1;
+            treeNode6.Name = "PhysicalCores";
+            treeNode6.SelectedImageIndex = 1;
+            treeNode6.Text = "Physical Cores: ";
+            treeNode7.ImageIndex = 1;
+            treeNode7.Name = "LogicalCores";
+            treeNode7.SelectedImageIndex = 1;
+            treeNode7.Text = "Logical Cores:";
+            treeNode8.ImageIndex = 1;
+            treeNode8.Name = "CPU";
+            treeNode8.SelectedImageIndex = 1;
+            treeNode8.Text = "CPU";
+            treeNode9.ImageIndex = 3;
+            treeNode9.Name = "MoboManufacturer";
+            treeNode9.SelectedImageIndex = 3;
+            treeNode9.Text = "Manufacturer:";
+            treeNode10.ImageIndex = 3;
+            treeNode10.Name = "MoboModel: ";
+            treeNode10.SelectedImageIndex = 3;
+            treeNode10.Text = "Model:";
+            treeNode11.ImageIndex = 3;
+            treeNode11.Name = "MoboSystemModel";
+            treeNode11.SelectedImageIndex = 3;
+            treeNode11.Text = "System Model: ";
+            treeNode12.ImageIndex = 3;
+            treeNode12.Name = "Motherboard";
+            treeNode12.SelectedImageIndex = 3;
+            treeNode12.Text = "Motherboard";
+            treeNode13.Name = "RAMTotalMemory";
+            treeNode13.Text = "Total Ram";
+            treeNode14.Name = "RAMSpeed";
+            treeNode14.Text = "Memory Speed";
+            treeNode15.Name = "RAMManufacturer";
+            treeNode15.Text = "Manufacturer:";
+            treeNode16.ImageIndex = 4;
+            treeNode16.Name = "Memory";
+            treeNode16.SelectedImageIndex = 4;
+            treeNode16.Text = "Memory";
+            treeNode17.ImageIndex = 0;
+            treeNode17.Name = "System";
+            treeNode17.Text = "System";
             this.hardwareTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode32});
+            treeNode17});
             this.hardwareTreeView.Size = new System.Drawing.Size(345, 358);
             this.hardwareTreeView.TabIndex = 0;
             // 
@@ -386,7 +440,7 @@
             this.tabPageHardwareUsage.Location = new System.Drawing.Point(4, 22);
             this.tabPageHardwareUsage.Name = "tabPageHardwareUsage";
             this.tabPageHardwareUsage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHardwareUsage.Size = new System.Drawing.Size(642, 306);
+            this.tabPageHardwareUsage.Size = new System.Drawing.Size(559, 364);
             this.tabPageHardwareUsage.TabIndex = 1;
             this.tabPageHardwareUsage.Text = "Usage";
             this.tabPageHardwareUsage.UseVisualStyleBackColor = true;
@@ -410,7 +464,7 @@
             this.tblLayoutHardwareUsage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tblLayoutHardwareUsage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tblLayoutHardwareUsage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tblLayoutHardwareUsage.Size = new System.Drawing.Size(636, 300);
+            this.tblLayoutHardwareUsage.Size = new System.Drawing.Size(553, 358);
             this.tblLayoutHardwareUsage.TabIndex = 0;
             // 
             // grpBoxRAMUsage
@@ -423,9 +477,9 @@
             this.grpBoxRAMUsage.Controls.Add(this.lblFreeRAM);
             this.grpBoxRAMUsage.Controls.Add(this.lblTotalRAM);
             this.grpBoxRAMUsage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpBoxRAMUsage.Location = new System.Drawing.Point(257, 3);
+            this.grpBoxRAMUsage.Location = new System.Drawing.Point(223, 3);
             this.grpBoxRAMUsage.Name = "grpBoxRAMUsage";
-            this.grpBoxRAMUsage.Size = new System.Drawing.Size(248, 84);
+            this.grpBoxRAMUsage.Size = new System.Drawing.Size(214, 101);
             this.grpBoxRAMUsage.TabIndex = 2;
             this.grpBoxRAMUsage.TabStop = false;
             this.grpBoxRAMUsage.Text = "RAM";
@@ -489,10 +543,10 @@
             this.tblLayoutHardwareUsage.SetColumnSpan(this.grpNetworkUsage, 2);
             this.grpNetworkUsage.Controls.Add(this.txtBoxNetworkUsage);
             this.grpNetworkUsage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpNetworkUsage.Location = new System.Drawing.Point(3, 93);
+            this.grpNetworkUsage.Location = new System.Drawing.Point(3, 110);
             this.grpNetworkUsage.Name = "grpNetworkUsage";
             this.tblLayoutHardwareUsage.SetRowSpan(this.grpNetworkUsage, 2);
-            this.grpNetworkUsage.Size = new System.Drawing.Size(248, 204);
+            this.grpNetworkUsage.Size = new System.Drawing.Size(214, 245);
             this.grpNetworkUsage.TabIndex = 1;
             this.grpNetworkUsage.TabStop = false;
             this.grpNetworkUsage.Text = "Network";
@@ -511,10 +565,10 @@
             this.tblLayoutHardwareUsage.SetColumnSpan(this.grpBoxVolUsage, 3);
             this.grpBoxVolUsage.Controls.Add(this.txtBoxVolUsage);
             this.grpBoxVolUsage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpBoxVolUsage.Location = new System.Drawing.Point(257, 93);
+            this.grpBoxVolUsage.Location = new System.Drawing.Point(223, 110);
             this.grpBoxVolUsage.Name = "grpBoxVolUsage";
             this.tblLayoutHardwareUsage.SetRowSpan(this.grpBoxVolUsage, 2);
-            this.grpBoxVolUsage.Size = new System.Drawing.Size(376, 204);
+            this.grpBoxVolUsage.Size = new System.Drawing.Size(327, 245);
             this.grpBoxVolUsage.TabIndex = 3;
             this.grpBoxVolUsage.TabStop = false;
             this.grpBoxVolUsage.Text = "Hard Drives";
@@ -542,7 +596,7 @@
             this.grpBoxCPUUsage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpBoxCPUUsage.Location = new System.Drawing.Point(3, 3);
             this.grpBoxCPUUsage.Name = "grpBoxCPUUsage";
-            this.grpBoxCPUUsage.Size = new System.Drawing.Size(248, 84);
+            this.grpBoxCPUUsage.Size = new System.Drawing.Size(214, 101);
             this.grpBoxCPUUsage.TabIndex = 0;
             this.grpBoxCPUUsage.TabStop = false;
             this.grpBoxCPUUsage.Text = "CPU";
@@ -625,7 +679,7 @@
             this.tabProcessPage.Location = new System.Drawing.Point(4, 22);
             this.tabProcessPage.Name = "tabProcessPage";
             this.tabProcessPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProcessPage.Size = new System.Drawing.Size(635, 462);
+            this.tabProcessPage.Size = new System.Drawing.Size(573, 396);
             this.tabProcessPage.TabIndex = 1;
             this.tabProcessPage.Text = "Processes";
             this.tabProcessPage.UseVisualStyleBackColor = true;
@@ -647,7 +701,7 @@
             this.dataGridProcess.ShowCellToolTips = false;
             this.dataGridProcess.ShowEditingIcon = false;
             this.dataGridProcess.ShowRowErrors = false;
-            this.dataGridProcess.Size = new System.Drawing.Size(629, 456);
+            this.dataGridProcess.Size = new System.Drawing.Size(567, 390);
             this.dataGridProcess.TabIndex = 0;
             // 
             // tabServicePage
@@ -655,7 +709,7 @@
             this.tabServicePage.Controls.Add(this.dataGridService);
             this.tabServicePage.Location = new System.Drawing.Point(4, 22);
             this.tabServicePage.Name = "tabServicePage";
-            this.tabServicePage.Size = new System.Drawing.Size(635, 462);
+            this.tabServicePage.Size = new System.Drawing.Size(573, 396);
             this.tabServicePage.TabIndex = 2;
             this.tabServicePage.Text = "Services";
             this.tabServicePage.UseVisualStyleBackColor = true;
@@ -673,7 +727,7 @@
             this.dataGridService.Name = "dataGridService";
             this.dataGridService.ReadOnly = true;
             this.dataGridService.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridService.Size = new System.Drawing.Size(635, 462);
+            this.dataGridService.Size = new System.Drawing.Size(573, 396);
             this.dataGridService.TabIndex = 0;
             // 
             // tabPageSchedule
@@ -685,7 +739,7 @@
             this.tabPageSchedule.Location = new System.Drawing.Point(4, 22);
             this.tabPageSchedule.Name = "tabPageSchedule";
             this.tabPageSchedule.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSchedule.Size = new System.Drawing.Size(635, 462);
+            this.tabPageSchedule.Size = new System.Drawing.Size(573, 396);
             this.tabPageSchedule.TabIndex = 3;
             this.tabPageSchedule.Text = "Scheduled Tasks";
             this.tabPageSchedule.UseVisualStyleBackColor = true;
@@ -829,7 +883,7 @@
             this.tabpageStatistics.Controls.Add(this.tblLayoutStats);
             this.tabpageStatistics.Location = new System.Drawing.Point(4, 22);
             this.tabpageStatistics.Name = "tabpageStatistics";
-            this.tabpageStatistics.Size = new System.Drawing.Size(635, 462);
+            this.tabpageStatistics.Size = new System.Drawing.Size(573, 396);
             this.tabpageStatistics.TabIndex = 4;
             this.tabpageStatistics.Text = "Network Statistics";
             this.tabpageStatistics.UseVisualStyleBackColor = true;
@@ -846,7 +900,7 @@
             this.tblLayoutStats.Name = "tblLayoutStats";
             this.tblLayoutStats.RowCount = 1;
             this.tblLayoutStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblLayoutStats.Size = new System.Drawing.Size(474, 462);
+            this.tblLayoutStats.Size = new System.Drawing.Size(474, 396);
             this.tblLayoutStats.TabIndex = 0;
             // 
             // flowLayoutStatLabels
@@ -861,7 +915,7 @@
             this.flowLayoutStatLabels.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutStatLabels.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutStatLabels.Name = "flowLayoutStatLabels";
-            this.flowLayoutStatLabels.Size = new System.Drawing.Size(183, 456);
+            this.flowLayoutStatLabels.Size = new System.Drawing.Size(183, 390);
             this.flowLayoutStatLabels.TabIndex = 0;
             // 
             // lblCommonProcessor
@@ -942,7 +996,7 @@
             this.flowLayoutStatText.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutStatText.Location = new System.Drawing.Point(192, 3);
             this.flowLayoutStatText.Name = "flowLayoutStatText";
-            this.flowLayoutStatText.Size = new System.Drawing.Size(279, 456);
+            this.flowLayoutStatText.Size = new System.Drawing.Size(279, 390);
             this.flowLayoutStatText.TabIndex = 1;
             // 
             // lblCommonProcessorAns
@@ -1027,6 +1081,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.serverMainSplitContainer)).EndInit();
             this.serverMainSplitContainer.ResumeLayout(false);
             this.tabControlCliens.ResumeLayout(false);
+            this.onlineClients.ResumeLayout(false);
             this.tabInfoContainer.ResumeLayout(false);
             this.tabHardwarePage.ResumeLayout(false);
             this.tabControlHardware.ResumeLayout(false);
@@ -1134,5 +1189,10 @@
         private System.Windows.Forms.Label lblAverageRAMAns;
         private System.Windows.Forms.Label lblAverageStorageAns;
         private System.Windows.Forms.Label lblAvgUptimeAns;
+        private System.Windows.Forms.ListView lstViewHorusOnlineClients;
+        private System.Windows.Forms.ColumnHeader clnComputerName;
+        private System.Windows.Forms.ColumnHeader clnUser;
+        private System.Windows.Forms.ColumnHeader clnUptime;
+        private System.Windows.Forms.ProgressBar pbOnlineClients;
     }
 }
