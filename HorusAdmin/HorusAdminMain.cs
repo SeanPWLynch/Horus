@@ -42,6 +42,12 @@ namespace HorusAdmin
             lstViewHorusOnlineClients.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             lstViewHorusOnlineClients.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
+            ProcessDataTable = new DataTable("Processes");
+
+            ProcessDataTable.Columns.Add("Process ID", typeof(int));
+            ProcessDataTable.Columns.Add("Process Name", typeof(string));
+            ProcessDataTable.Columns.Add("Memory", typeof(int));
+            ProcessDataTable.Columns.Add("Thread Count", typeof(int));
 
             
            
@@ -159,7 +165,47 @@ namespace HorusAdmin
             try
             {
                 Computer setDetails = HorusClientsOnline.Find(item => item.HostName == lstViewHorusOnlineClients.SelectedItems[0].Text.ToString());
-                SetHardwareText(setDetails);
+
+                new Thread(() =>
+                {
+                    Thread.CurrentThread.IsBackground = true;
+                    try
+                    {
+                        SetHardwareText(setDetails);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }).Start();
+                new Thread(() =>
+                {
+                    Thread.CurrentThread.IsBackground = true;
+                    try
+                    {
+                        SetProcessDataGrid(setDetails);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }).Start();
+                new Thread(() =>
+                {
+                    Thread.CurrentThread.IsBackground = true;
+                    try
+                    {
+                        SetHardwareUsage(setDetails);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }).Start();
+                
+                
+                
+                
             }
             catch(Exception ex)
             {
@@ -206,6 +252,48 @@ namespace HorusAdmin
 
                 }
 
+            }
+        }
+
+        delegate void SetHardwareUsageCallback(Computer comp);
+        private void SetHardwareUsage(Computer comp)
+        {
+            if (this.lblCPUUsage.InvokeRequired)
+            {
+                SetHardwareUsageCallback d = new SetHardwareUsageCallback(SetHardwareUsage);
+                this.Invoke(d, new object[] { comp });
+            }
+            else
+            {
+                if (comp.HostName == "")
+                {
+                }
+                else
+                {
+                    //Set CPU Usage Labels
+                    //0 = Uptime: 1 = Utilisation: 2 = Threads: 3 = Processes
+                    this.lblUptimeAns.Text = comp.SystemUpTime.TotalHours.ToString() + ":" + comp.SystemUpTime.TotalMinutes.ToString() + ":" + comp.SystemUpTime.TotalSeconds.ToString();
+                    this.lblCPUUsageAns.Text = comp.SystemProcessor.cpuUsage;
+                    this.lblThreadsAns.Text = comp.SystemProcessor.threads.ToString();
+                    this.lblProcessesAns.Text = comp.RunningProcesses.GetProcesses().Count().ToString();
+
+                    //Set RAM Usage Labels
+
+                    this.lblTotalRAMAns.Text = comp.SystemRAM.totalRAM.ToString() + "MB";
+                    this.lblFreeRAMAns.Text = comp.SystemRAM.freeRAM.ToString() + "MB";
+                    this.lblInUseRAMAns.Text = (comp.SystemRAM.totalRAM - comp.SystemRAM.freeRAM).ToString() + "MB";
+
+                    //Set Network Usage
+                    
+                    
+                    this.txtBoxNetworkUsage.Text = "";
+                    this.txtBoxNetworkUsage.Text = "Total In: " + comp.SystemNIC.KBytesIn.ToString() + Environment.NewLine + "Total Out: " + comp.SystemNIC.KBytesOut.ToString() + Environment.NewLine + comp.SystemNIC.KBytesTotal.ToString();
+
+                    //Set Volume Usage
+
+                    this.txtBoxVolUsage.Text = "";
+
+                }
             }
         }
 
