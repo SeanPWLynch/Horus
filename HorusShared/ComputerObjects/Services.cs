@@ -11,7 +11,7 @@ namespace HorusShared.ComputerObjects
 
     public class Services
     {
-        private ServiceController[] SystemServices;
+        public ServiceController[] SystemServices;
 
         public Services()
         {

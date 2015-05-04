@@ -85,6 +85,15 @@
     <None Include="Service References\RemoteUserService\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\RemoteUserService\System.ComponentModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RemoteUserService\System.ServiceProcess.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RemoteUserService\System.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ServerAdminService\ServerAdminService.csproj">

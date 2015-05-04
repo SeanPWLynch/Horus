@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using HorusShared;
 using HorusShared.ComputerObjects;
 using System.Diagnostics;
+using System.ServiceProcess;
 
 namespace HorusAdmin
 {
@@ -48,6 +49,13 @@ namespace HorusAdmin
             ProcessDataTable.Columns.Add("Process Name", typeof(string));
             ProcessDataTable.Columns.Add("Memory", typeof(int));
             ProcessDataTable.Columns.Add("Thread Count", typeof(int));
+
+            ServiceDataTable = new DataTable("Services");
+            ServiceDataTable.Columns.Add("Service Name", typeof(string));
+            ServiceDataTable.Columns.Add("Service Type", typeof(string));
+            ServiceDataTable.Columns.Add("Display Name", typeof(string));
+            ServiceDataTable.Columns.Add("Current Status", typeof(string));
+            ServiceDataTable.Columns.Add("Startup Type", typeof(string));
 
             
            
@@ -202,6 +210,20 @@ namespace HorusAdmin
 
                     }
                 }).Start();
+                new Thread(() =>
+                {
+                    Thread.CurrentThread.IsBackground = true;
+                    try
+                    {
+                        SetServiceDataGrid(setDetails);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }).Start();
+
+                
                 
                 
                 
@@ -292,6 +314,14 @@ namespace HorusAdmin
                     //Set Volume Usage
 
                     this.txtBoxVolUsage.Text = "";
+                    foreach(Volumes vol in comp.SystemVolumes.drives)
+                    {
+                        this.txtBoxVolUsage.Text += "Manufacturer:" + vol.Manufacturer + Environment.NewLine;
+                        this.txtBoxVolUsage.Text += "Drive Letter:" + vol.driveLetter + Environment.NewLine;
+                        this.txtBoxVolUsage.Text += "Drive Capacity:" + vol.driveCap + "GB" + Environment.NewLine;
+                        this.txtBoxVolUsage.Text += "Free Space:" + vol.freeSpace +"GB" + Environment.NewLine;
+                        this.txtBoxVolUsage.Text += "Usage:" + vol.volUsage + Environment.NewLine;
+                    }
 
                 }
             }
@@ -321,6 +351,39 @@ namespace HorusAdmin
                 dataGridProcess.DataSource = ProcessDataTable;
                 dataGridProcess.Refresh();
 
+            }
+        }
+
+        delegate void SetServiceDataGridCallback(Computer comp);
+        private void SetServiceDataGrid(Computer comp)
+        {
+            if (this.dataGridService.InvokeRequired)
+            {
+                SetServiceDataGridCallback d = new SetServiceDataGridCallback(SetServiceDataGrid);
+                this.Invoke(d, new object[] { comp });
+            }
+            else
+            {
+                ServiceDataTable.Rows.Clear();
+
+                foreach(System.ServiceProcess.ServiceController serv in comp.RunningServices.SystemServices)
+                {
+                    try
+                    {
+                        if (serv != null)
+                        {
+                            ServiceDataTable.Rows.Add(serv.ServiceName, serv.ServiceType, serv.DisplayName, serv.Status, serv.Site);
+                        }
+                    }
+                    catch (System.Exception ex)
+                    {
+
+                    }
+
+                }
+
+                dataGridService.DataSource = ServiceDataTable;
+                dataGridService.Refresh();
             }
         }
 

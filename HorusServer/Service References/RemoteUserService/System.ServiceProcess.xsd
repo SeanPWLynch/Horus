@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.ServiceProcess" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.ServiceProcess" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.ComponentModel" />
+  <xs:complexType name="ArrayOfServiceController">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceController" nillable="true" type="tns:ServiceController" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfServiceController" nillable="true" type="tns:ArrayOfServiceController" />
+  <xs:complexType name="ServiceController">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.ComponentModel" base="q1:Component">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DependentServices" nillable="true" type="tns:ArrayOfServiceController" />
+          <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MachineName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServicesDependedOn" nillable="true" type="tns:ArrayOfServiceController" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ServiceController" nillable="true" type="tns:ServiceController" />
+</xs:schema>

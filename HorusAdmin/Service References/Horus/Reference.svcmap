@@ -27,6 +27,9 @@
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="68e44110-5b43-45fd-b890-21ed8a0fdc34" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="b9d0a64f-5938-4d36-a92f-87d8fc325929" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
     <MetadataFile FileName="HorusShared.ComputerObjects.xsd" MetadataType="Schema" ID="d9388644-c359-4191-b0dd-292d7791ce3b" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
+    <MetadataFile FileName="System.ServiceProcess.xsd" MetadataType="Schema" ID="5a3e7d4c-aaf6-4455-832a-904d447e5956" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
+    <MetadataFile FileName="System.ComponentModel.xsd" MetadataType="Schema" ID="14d050a5-f915-4ce1-8cd1-78747960b964" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
+    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="d6aa6a37-346d-403f-9237-fefe798131dc" SourceId="1" SourceUrl="net.tcp://localhost:12000/ServerAdminService/ServerAdminService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
